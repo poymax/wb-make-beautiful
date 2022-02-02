@@ -4,12 +4,11 @@
 
 ## Скрипты
 read_roms.pl чтение содержимого ПЗУ, каждый банк складывается в отдельный файл (rom_1.ir, rom_2.ir...rom_7.ir). Содержимое файла -- набор десятичных чисел.
-Формат запуска: <./read_roms.pl directory modbus-address> directory -- имя директории (создается, если нет), modbus-address -- modbus-адрес устройства
+Формат запуска: <./read_roms.pl directory modbus-address baudrate number-of-ROMs> directory -- имя директории (создается, если нет), modbus-address -- modbus-адрес устройства, baudrate -- скорость передачи, number-of-ROMs -- количество ячеек ROM, которые требуется прочитать.
 Чтение выполняется с помощью modbus_client, параметры заданы в коде скрипта.
 
 Обратная операция осуществляется при помощи write_roms.pl
-Формат запуска: <./write_roms.pl directory modbus-address> directory -- имя директории, в которой хранятся считанные банки памяти. modbus-address -- modbus-адрес устройства, на которое загружаются банки памяти.
-
+Формат запуска: <./write_roms.pl directory modbus-address baudrate number-of-ROMs> directory -- имя директории, в которой хранятся считанные банки памяти. modbus-address -- modbus-адрес устройства, на которое загружаются банки памяти, baudrate -- скорость передачи, number-of-ROMs -- количество ячеек ROM, которые требуется записать.
 
 ## Вспомогательные утилиты
 putbuffer.pl -- вспомогательная утилита для перемещения банков памяти, используетсяс при выполнении read_roms.pl (putbuffer.pl -- обратная операция)
