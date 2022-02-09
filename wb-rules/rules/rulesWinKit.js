@@ -2,26 +2,16 @@
 
 var permissions = require('rulesPermissions')
 
-var winKitOn = defineRule('winKitOn', {
-    when: function() {
-        return dev['controlRoom/tOUT'] <= 2
-    },
+defineRule('winKit', {
+    whenChanged: 'controlRoom/tOUT',
     
-    then: function() {
+    then: function(newValue) {
         if (permissions.getRulePermission('WinKit')) {
-            dev['controlRoom/Win_Kit'] = true
-        }
-    }
-})
-
-var winKitOff = defineRule('winKitOff', {
-    when: function() {
-        return dev['controlRoom/tOUT'] >= 3
-    },
-    
-    then: function() {
-        if (permissions.getRulePermission('WinKit')) {
-            dev['controlRoom/Win_Kit'] = false
+            if (newValue <= 2) {
+                dev['controlRoom/Win_Kit'] = true
+            } else if (newValue >= 3) {
+                dev['controlRoom/Win_Kit'] = false
+            }
         }
     }
 })

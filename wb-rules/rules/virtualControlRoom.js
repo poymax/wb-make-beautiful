@@ -68,30 +68,51 @@ defineVirtualDevice('controlRoom', {
             order: 9,
         },
 
-        tON: {
-            type: 'value',
+        tON_COOLER: {
+            type: 'temperature',
             value: 20,
             readonly: false,
             order: 10,
         },
         
-        tREQ: {
-            type: 'value',
+        tREQ_COOLER: {
+            type: 'temperature',
             value: 23,
             readonly: false,
             order: 11,
         },
 
+        tOUT_FLIP: {
+            type: 'temperature',
+            value: 20,
+            readonly: false,
+            order: 12,
+        },
+
+        tIN_MAX: {
+            type: 'temperature',
+            value: 30,
+            readonly: false,
+            order: 13,
+        },
+
+        Humidity_MAX: {
+            type: 'rel_humidity',
+            value: 80,
+            readonly: false,
+            order: 14,
+        },
+
         Master_cooler: {
             type: 'text',
             value: 'none',
-            order: 12,
+            order: 15,
         },
 
         Manual_control: {
             type: 'switch',
             value: false,
-            order: 13,
+            order: 16,
         },
     },
 })

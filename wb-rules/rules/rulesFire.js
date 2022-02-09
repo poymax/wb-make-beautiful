@@ -2,43 +2,25 @@
 
 var permissions = require('rulesPermissions')
 
-var fireDetected = defineRule('fireDetected', {
-    when: function() {
-        return dev['controlRoom/Fire']
-    },
+defineRule('fire', {
+    whenChanged: 'controlRoom/Fire',
     
-    then: function() {
-        log.warning('Fire detected')
-
-        if (permissions.getRulePermission('Fire')) {
+    then: function(enabled) {
+        log.warning('Fire {}'.format(enabled ? 'detected' : 'eliminated'))
+        
+        if (enabled) {
             dev['controlRoom/Heater'] = false
+            dev['controlRoom/Conditioner'] = false
             log.info('Heater is OFF')
-        
-            try {
-                permissions.setRulePermission('Heater', false)
-                log.info('Heater rules disabled')
-            } catch (e) {
-                log.error(e)
-            }
         }
-    }
-})
 
-var fireEliminated = defineRule('fireEliminated', {
-    when: function() {
-        return !dev['controlRoom/Fire']
-    },
-
-    then: function() {
-        log.warning('Fire eliminated')
-        
-        if (permissions.getRulePermission('Fire')) {
-            try {
-                permissions.setRulePermission('Heater', true)
-                log.info('Heater rules enabled')
-            } catch (e) {
-                log.error(e)
-            }
+        try {
+            permissions.setRulePermission('Heater', !enabled)
+            permissions.setRulePermission('Cooler', !enabled)
+            log.info('Heater rules {}'.format(enabled ? 'disabled' : 'enabled'))
+            log.info('Cooler rules {}'.format(enabled ? 'disabled' : 'enabled'))
+        } catch (e) {
+            log.error(e)
         }
     }
 })

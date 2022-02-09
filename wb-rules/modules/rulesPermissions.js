@@ -1,8 +1,9 @@
 // Модуль для хранения, чтения и установки разрешений правил
 
 module.static.rulesList = {
-    'AC': true,
-    'Fire': true,
+    // 'AC': true,
+    'Cooler': true,
+    // 'Fire': true,
     'Heater': true,
     'WinKit': true,
 }

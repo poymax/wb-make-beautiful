@@ -2,28 +2,18 @@
 
 var permissions = require('rulesPermissions')
 
-var heaterOn = defineRule('heaterOn', {
-    when: function() {
-        return dev['controlRoom/tIN'] <= 13
-    },
+defineRule('heater', {
+    whenChanged: 'controlRoom/tIN',
     
-    then: function() {
+    then: function(newValue) {
         if (permissions.getRulePermission('Heater')) {
-            dev['controlRoom/Heater'] = true
-            dev['controlRoom/Conditioner'] = true // Кондиционер включать в режим вентилятора
-        }
-    }
-})
-
-var heaterOff = defineRule('heaterOff', {
-    when: function() {
-        return dev['controlRoom/tIN'] >= 16
-    },
-    
-    then: function() {
-        if (permissions.getRulePermission('Heater')) {
-            dev['controlRoom/Heater'] = false
-            dev['controlRoom/Conditioner'] = false
+            if (newValue <= 13) {
+                dev['controlRoom/Heater'] = true
+                dev['controlRoom/Conditioner'] = true // Кондиционер в режим вентилятора
+            } else if (newValue >= 16) {
+                dev['controlRoom/Heater'] = false
+                dev['controlRoom/Conditioner'] = false
+            }
         }
     }
 })
