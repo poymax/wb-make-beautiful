@@ -118,5 +118,11 @@ defineVirtualDevice('controlRoom', {
             value: false,
             order: 17,
         },
+
+        Virtual_AnalogOUT: {
+            type: 'voltage',
+            value: 0,
+            order: 18,
+        }
     },
 })
