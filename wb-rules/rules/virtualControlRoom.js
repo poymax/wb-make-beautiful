@@ -7,7 +7,6 @@ defineVirtualDevice('controlRoom', {
             type: 'temperature',
             value: 20,
             readonly: false,
-            // lazyInit: true,
             order: 1,
         },
         
@@ -15,7 +14,6 @@ defineVirtualDevice('controlRoom', {
             type: 'temperature',
             value: 20,
             readonly: false,
-            // lazyInit: true,
             order: 2,
         },
 
@@ -56,63 +54,69 @@ defineVirtualDevice('controlRoom', {
             order: 7,
         },
 
-        Fire: {
+        Fire_alarm: {
             type: 'switch',
             value: false,
             order: 8,
         },
 
-        AC_Power: {
+        AC_alarm: {
             type: 'switch',
-            value: true,
+            value: false,
             order: 9,
+        },
+
+        Overheat_alarm: {
+            type: 'alarm',
+            value: false,
+            order: 10,
         },
 
         tON_COOLER: {
             type: 'temperature',
             value: 20,
             readonly: false,
-            order: 10,
+            order: 11,
         },
         
         tREQ_COOLER: {
             type: 'temperature',
             value: 23,
             readonly: false,
-            order: 11,
+            order: 12,
         },
 
         tOUT_FLIP: {
             type: 'temperature',
             value: 20,
             readonly: false,
-            order: 12,
+            order: 13,
         },
 
         tIN_MAX: {
             type: 'temperature',
             value: 30,
             readonly: false,
-            order: 13,
+            order: 14,
         },
 
         Humidity_MAX: {
             type: 'rel_humidity',
             value: 80,
             readonly: false,
-            order: 14,
+            order: 15,
         },
 
         Master_cooler: {
             type: 'text',
             value: 'none',
-            order: 15,
+            order: 16,
         },
 
         Manual_control: {
             type: 'switch',
             value: false,
-            order: 16,
+            order: 17,
         },
     },
 })
