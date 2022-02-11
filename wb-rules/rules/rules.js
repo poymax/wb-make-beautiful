@@ -201,10 +201,13 @@ var overheat = defineRule({ // Критическая температура в�
                 coolerFlipped = true
             }
 
-        } else if (temperature <= dev['controlRoom/tON_COOLER']) {
+        } else if (temperature <= dev['controlRoom/tON_COOLER'] && dev['controlRoom/Overheat_alarm']) {
             dev['controlRoom/Overheat_alarm'] = false
             coolerFlipped = false
 
+            runRule(highHumidity)
+            enableRule(highHumidity)
+        } else {
             runRule(highHumidity)
             enableRule(highHumidity)
         }
