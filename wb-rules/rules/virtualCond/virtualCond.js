@@ -1,21 +1,25 @@
-// Виртуальный кондиционер
+// Virtual air conditioner
 
-// TODO: перечитывать конфиг
-// TODO: датчик температуры у выдува
-
-var PATH_TO_CONFIG = '/etc/wb-rules/virtualCond/virtualCondLinks.conf'
+var PATH_TO_CONFIG = '/etc/wb-rules/virtualCond/config.conf'
 
 var config = readConfig(PATH_TO_CONFIG)
+var sendingInterval = config['sendingInterval']
 
 defineVirtualDevice('virtualCond', {
     title: 'Virtual Conditioner',
     cells: {
-        mode: {
+        Mode: {
             type: 'text',
-            value: '',
+            value: 'OFF',
             readonly: false,
             order: 1,
-        }
+        },
+        Temperature: {
+            type: 'temperature',
+            value: dev[config['tempSensor']],
+            readonly: true,
+            order: 2,
+        },
     }
 })
 
@@ -37,9 +41,18 @@ function sendCommand(command) {
     }
 }
 
-defineRule("virtual_conditioner", {
-    whenChanged: 'virtualCond/mode',
+defineRule('virtualCondMode', {
+    whenChanged: 'virtualCond/Mode',
     then: sendCommand
 })
 
-setInterval(function() { sendCommand(dev['virtualCond/mode']) }, 60000);
+defineRule('virtualCondTemp', {
+    whenChanged: config['tempSensor'],
+    then: function(newValue) {
+        dev['virtualCond/Temperature'] = newValue
+    }
+})
+
+if (sendingInterval !== 0) {
+    setInterval(function() { sendCommand(dev['virtualCond/Mode']) }, sendingInterval)
+}
