@@ -34,8 +34,6 @@ defineRule('virtualACalarm', {
                 // TODO
                 break
             case 'error':
-                // TODO
-                log(newValue)
                 if (newValue !== '') {
                     setACalarm(true)
                 } else {
