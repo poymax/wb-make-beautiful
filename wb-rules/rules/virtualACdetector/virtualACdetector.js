@@ -28,10 +28,18 @@ defineRule('virtualACalarm', {
     then: function(newValue) {
         switch(config['type']) {
             case 'value':
-                // TODO
+                if (newValue <= 0) {
+                    setACalarm(true)
+                } else {
+                    setACalarm(false)
+                }
                 break
             case 'boolean':
-                // TODO
+                if (config['needToFlipBoolean']) {
+                    setACalarm(!newValue)
+                } else {
+                    setACalarm(newValue)
+                }
                 break
             case 'error':
                 if (newValue !== '') {
