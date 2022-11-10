@@ -4,6 +4,13 @@ var PATH_TO_CONFIG = '/etc/wb-rules/virtualDoor/config.conf'
 
 var config = readConfig(PATH_TO_CONFIG)
 
+var door1RealTopic = config['door1']
+var door2RealTopic = config['door2']
+var doorAlarmTopic = 'virtualDoor/Door_alarm'
+var door1VirtualTopic = 'virtualDoor/Door_1'
+var door2VirtualTopic = 'virtualDoor/Door_2'
+var doorPresentTopic = 'virtualDoor/Door_trigger_present'
+
 defineVirtualDevice('virtualDoor', {
     title: 'Virtual door',
     cells: {
@@ -21,13 +28,13 @@ defineVirtualDevice('virtualDoor', {
         },
         Door_1: {
             type: 'alarm',
-            value: false,
+            value: dev[door1RealTopic],
             readonly: false,
             order: 3,
         },
         Door_2: {
             type: 'alarm',
-            value: false,
+            value: dev[door2RealTopic],
             readonly: false,
             order: 4,
         },
@@ -35,26 +42,26 @@ defineVirtualDevice('virtualDoor', {
 })
 
 function checkDoorsAlarm() {
-    dev['virtualDoor/Door_alarm'] = (dev['virtualDoor/Door_1'] || dev['virtualDoor/Door_2']) && dev['virtualDoor/Door_trigger_present']
+    dev[doorAlarmTopic] = (dev[door1VirtualTopic] || dev[door2VirtualTopic]) && dev[doorPresentTopic]
 }
 
 defineRule('virtualDoor1', {
-    whenChanged: config['door1'],
+    whenChanged: door1RealTopic,
     then: function (newValue) {
-        dev['virtualDoor/Door_1'] = newValue
+        dev[door1VirtualTopic] = newValue
         checkDoorsAlarm()
     }
 })
 
 defineRule('virtualDoor2', {
-    whenChanged: config['door2'],
+    whenChanged: door2RealTopic,
     then: function (newValue) {
-        dev['virtualDoor/Door_2'] = newValue
+        dev[door2VirtualTopic] = newValue
         checkDoorsAlarm()
     }
 })
 
 defineRule('checkTrigger', {
-    whenChanged: 'virtualDoor/Door_trigger_present',
+    whenChanged: doorPresentTopic,
     then: checkDoorsAlarm
 })
