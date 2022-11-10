@@ -6,7 +6,7 @@ var config = readConfig(PATH_TO_CONFIG)
 var sendingInterval = config['sendingInterval']
 
 defineVirtualDevice('virtualCond', {
-    title: 'Virtual Conditioner',
+    title: 'Virtual conditioner',
     cells: {
         Mode: {
             type: 'text',
