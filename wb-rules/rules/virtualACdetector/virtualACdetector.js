@@ -1,5 +1,3 @@
-// Virtual AC detector
-
 var PATH_TO_CONFIG = '/etc/wb-rules/virtualACdetector/config.conf'
 
 var config = readConfig(PATH_TO_CONFIG)

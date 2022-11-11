@@ -1,5 +1,3 @@
-// Virtual door
-
 var PATH_TO_CONFIG = '/etc/wb-rules/virtualDoor/config.conf'
 
 var config = readConfig(PATH_TO_CONFIG)

@@ -1,5 +1,3 @@
-// Virtual air conditioner
-
 var PATH_TO_CONFIG = '/etc/wb-rules/virtualCond/config.conf'
 
 var config = readConfig(PATH_TO_CONFIG)

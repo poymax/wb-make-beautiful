@@ -1,36 +1,30 @@
-// Virtual controller
-
-var PATH_TO_CONFIG = '/etc/wb-rules/virtualController/config.conf'
-
-var config = readConfig(PATH_TO_CONFIG)
-
 defineVirtualDevice('virtualController', {
     title: 'Virtual controller',
     cells: {
         Manual_control: {
             type: 'switch',
-            value: false,
+            value: true,
             readonly: false,
             order: 1,
         },
 
       	tIN: {
             type: 'temperature',
-            value: dev[config["tIN"]],
+            value: 0,
             readonly: true,
             order: 2,
         },
 
         tOUT: {
             type: 'temperature',
-            value: dev[config["tOUT"]],
+            value: 0,
             readonly: true,
             order: 3,
         },
 
         Humidity: {
             type: 'rel_humidity',
-            value: dev[config["Humidity"]],
+            value: 0,
             readonly: true,
             order: 4,
         },
@@ -45,7 +39,7 @@ defineVirtualDevice('virtualController', {
         FAN: {
             type: 'switch',
             value: false,
-            readonly: false,
+            readonly: true,
             order: 6,
         },
 
@@ -59,7 +53,7 @@ defineVirtualDevice('virtualController', {
         Heater: {
             type: 'switch',
             value: false,
-            readonly: false,
+            readonly: true,
             order: 8,
         },
 
@@ -73,7 +67,7 @@ defineVirtualDevice('virtualController', {
         WinKit: {
             type: 'switch',
             value: false,
-            readonly: false,
+            readonly: true,
             order: 10,
         },
 
