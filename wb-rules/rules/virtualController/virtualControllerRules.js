@@ -2,21 +2,25 @@ var PATH_TO_CONFIG = '/etc/wb-rules/virtualController/config.conf'
 
 var config = readConfig(PATH_TO_CONFIG)
 
-if (config['tIN'] && config['tOUT'] && config['humidity']) {
+if (config['tIN']) {
     defineRule('tIN', {
         whenChanged: config['tIN'],
         then: function(newValue) {
             dev['virtualController/tIN'] = newValue
         }
     })
-    
+}
+
+if (config['tOUT']) {
     defineRule('tOUT', {
         whenChanged: config['tOUT'],
         then: function(newValue) {
             dev['virtualController/tOUT'] = newValue
         }
     })
-    
+}
+
+if (config['humidity']) {
     defineRule('humidity', {
         whenChanged: config['humidity'],
         then: function(newValue) {
@@ -64,26 +68,32 @@ defineRule('winKitPresent', {
     }
 })
 
-defineRule('fan', {
-    whenChanged: 'virtualController/FAN',
-    then: function(newValue) {
-        dev[config['fan']] = newValue
-    }
-})
+if (config['fan']) {
+    defineRule('fan', {
+        whenChanged: 'virtualController/FAN',
+        then: function(newValue) {
+            dev[config['fan']] = newValue
+        }
+    })
+}
 
-defineRule('heater', {
-    whenChanged: 'virtualController/Heater',
-    then: function(newValue) {
-        dev[config['heater']] = newValue
-    }
-})
+if (config['heater']) {
+    defineRule('heater', {
+        whenChanged: 'virtualController/Heater',
+        then: function(newValue) {
+            dev[config['heater']] = newValue
+        }
+    })
+}
 
-defineRule('winKit', {
-    whenChanged: 'virtualController/WinKit',
-    then: function(newValue) {
-        dev[config['winKit']] = newValue
-    }
-})
+if (config['winKit']) {
+    defineRule('winKit', {
+        whenChanged: 'virtualController/WinKit',
+        then: function(newValue) {
+            dev[config['winKit']] = newValue
+        }
+    })
+}
 
 defineRule('restartRules', {
     whenChanged: 'virtualController/Restart_rules',
