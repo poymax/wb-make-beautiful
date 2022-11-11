@@ -4,21 +4,21 @@ var config = readConfig(PATH_TO_CONFIG)
 
 var door1RealTopic = config['door1']
 var door2RealTopic = config['door2']
-var doorAlarmTopic = 'virtualDoor/Door_alarm'
+var doorAlarmTopic = 'virtualDoor/Door'
 var door1VirtualTopic = 'virtualDoor/Door_1'
 var door2VirtualTopic = 'virtualDoor/Door_2'
-var doorPresentTopic = 'virtualDoor/Door_trigger_present'
+var doorPresentTopic = 'virtualDoor/Door_present'
 
 defineVirtualDevice('virtualDoor', {
     title: 'Virtual door',
     cells: {
-        Door_trigger_present: {
+        Door_present: {
             type: 'switch',
             value: false,
             readonly: false,
             order: 1,
         },
-        Door_alarm: {
+        Door: {
             type: 'alarm',
             value: false,
             readonly: false,
@@ -43,21 +43,25 @@ function checkDoorsAlarm() {
     dev[doorAlarmTopic] = (dev[door1VirtualTopic] || dev[door2VirtualTopic]) && dev[doorPresentTopic]
 }
 
-defineRule('virtualDoor1', {
-    whenChanged: door1RealTopic,
-    then: function (newValue) {
-        dev[door1VirtualTopic] = newValue
-        checkDoorsAlarm()
-    }
-})
+if (door1RealTopic) {
+    defineRule('virtualDoor1', {
+        whenChanged: door1RealTopic,
+        then: function (newValue) {
+            dev[door1VirtualTopic] = newValue
+            checkDoorsAlarm()
+        }
+    })
+}
 
-defineRule('virtualDoor2', {
-    whenChanged: door2RealTopic,
-    then: function (newValue) {
-        dev[door2VirtualTopic] = newValue
-        checkDoorsAlarm()
-    }
-})
+if (door2RealTopic) {
+    defineRule('virtualDoor2', {
+        whenChanged: door2RealTopic,
+        then: function (newValue) {
+            dev[door2VirtualTopic] = newValue
+            checkDoorsAlarm()
+        }
+    })
+}
 
 defineRule('checkTrigger', {
     whenChanged: doorPresentTopic,

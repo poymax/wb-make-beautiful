@@ -37,3 +37,19 @@ defineRule('virtualControllerSetpointLogger', {
         log.info('{}:::new setpoint: {} = {}', devName, cellName, newValue)
     }
 })
+
+defineRule('virtualDoorLogger', {
+    whenChanged: [
+        'virtualDoor/Door_present',
+        'virtualDoor/Door',
+        'virtualDoor/Door_1',
+        'virtualDoor/Door_2'
+    ],
+    then: function(newValue, devName, cellName) {
+        if (cellName == 'Door_present') {
+            log.info('{}:::{} {}', devName, cellName, newValue ? 'ON' : 'OFF')
+        } else {
+            log.warning('{}:::{} alarm {}', devName, cellName, newValue ? 'detected' : 'cleared')
+        }
+    }
+})
