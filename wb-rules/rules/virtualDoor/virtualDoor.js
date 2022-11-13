@@ -63,7 +63,7 @@ if (door2RealTopic) {
     })
 }
 
-defineRule('checkTrigger', {
+defineRule('checkDoorPresent', {
     whenChanged: doorPresentTopic,
     then: checkDoorsAlarm
 })
