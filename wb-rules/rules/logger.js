@@ -38,6 +38,13 @@ defineRule('virtualControllerSetpointLogger', {
     }
 })
 
+defineRule('virtualACLogger', {
+    whenChanged: 'virtualACdetector/AC',
+    then: function(newValue, devName, cellName) {
+        log.warning('{}:::{} alarm {}', devName, cellName, newValue ? 'detected' : 'cleared')
+    }
+})
+
 defineRule('virtualDoorLogger', {
     whenChanged: [
         'virtualDoor/Door_present',
@@ -51,5 +58,28 @@ defineRule('virtualDoorLogger', {
         } else {
             log.warning('{}:::{} alarm {}', devName, cellName, newValue ? 'detected' : 'cleared')
         }
+    }
+})
+
+defineRule('virtualFireLogger', {
+    whenChanged: [
+        'virtualFireDetector/Fire_detector_present',
+        'virtualFireDetector/Fire',
+        'virtualFireDetector/Detector_1',
+        'virtualFireDetector/Detector_2'
+    ],
+    then: function(newValue, devName, cellName) {
+        if (cellName == 'Fire_detector_present') {
+            log.info('{}:::{} {}', devName, cellName, newValue ? 'ON' : 'OFF')
+        } else {
+            log.warning('{}:::{} alarm {}', devName, cellName, newValue ? 'detected' : 'cleared')
+        }
+    }
+})
+
+defineRule('virtualCoolerLogger', {
+    whenChanged: 'virtualCooler/Cooler2_present',
+    then: function(newValue, devName, cellName) {
+        log.info('{}:::{} {}', devName, cellName, newValue ? 'ON' : 'OFF')
     }
 })
