@@ -22,18 +22,21 @@ defineVirtualDevice('virtualDoor', {
             type: 'alarm',
             value: false,
             readonly: false,
+            forceDefault: true,
             order: 2,
         },
         Door_1: {
             type: 'alarm',
             value: dev[door1RealTopic],
             readonly: false,
+            forceDefault: true,
             order: 3,
         },
         Door_2: {
             type: 'alarm',
             value: dev[door2RealTopic],
             readonly: false,
+            forceDefault: true,
             order: 4,
         },
     }
@@ -67,3 +70,5 @@ defineRule('checkDoorPresent', {
     whenChanged: doorPresentTopic,
     then: checkDoorsAlarm
 })
+
+checkDoorsAlarm()

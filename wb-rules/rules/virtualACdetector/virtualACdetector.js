@@ -9,6 +9,7 @@ defineVirtualDevice('virtualACdetector', {
             type: 'alarm',
             value: false,
             readonly: false,
+            forceDefault: true,
             order: 1,
         },
     }
@@ -18,8 +19,41 @@ function setACalarm(status) {
     dev['virtualACdetector/AC'] = status
 }
 
+function checkACalarm(value) {
+    switch(config['type']) {
+        case 'value':
+            if (value <= 0) {
+                setACalarm(true)
+            } else {
+                setACalarm(false)
+            }
+            break
+        case 'boolean':
+            if (config['needToFlipBoolean']) {
+                setACalarm(!value)
+            } else {
+                setACalarm(value)
+            }
+            break
+        case 'error':
+            if (value !== undefined) {
+                setACalarm(true)
+            } else {
+                setACalarm(false)
+            }
+            break
+        default:
+            log.error('Wrong type "{}" in {}. Type must be "value", "boolean" or "error"', config['type'], PATH_TO_CONFIG);
+            break
+    }
+}
+
 if (config['topic']) {
-    setACalarm(dev[config['topic']] && !config['needToFlipBoolean'])
+    if (config['type'] == 'error') {
+        checkACalarm(dev[config['topic'] + '#error'])
+    } else {
+        checkACalarm(dev[config['topic']])
+    }
 
     defineRule('virtualACalarm', {
         whenChanged: [
@@ -27,32 +61,7 @@ if (config['topic']) {
             config['topic']
         ],
         then: function(newValue) {
-            switch(config['type']) {
-                case 'value':
-                    if (newValue <= 0) {
-                        setACalarm(true)
-                    } else {
-                        setACalarm(false)
-                    }
-                    break
-                case 'boolean':
-                    if (config['needToFlipBoolean']) {
-                        setACalarm(!newValue)
-                    } else {
-                        setACalarm(newValue)
-                    }
-                    break
-                case 'error':
-                    if (newValue !== '') {
-                        setACalarm(true)
-                    } else {
-                        setACalarm(false)
-                    }
-                    break
-                default:
-                    log.error('Wrong type "{}" in {}. Type must be "value", "boolean" or "error"', config['type'], PATH_TO_CONFIG);
-                    break
-            }
+            checkACalarm(newValue)
         }
     })
 } else {
