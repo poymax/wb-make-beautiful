@@ -27,14 +27,14 @@ defineVirtualDevice('virtualDoor', {
         },
         Door_1: {
             type: 'alarm',
-            value: dev[door1RealTopic],
+            value: false,
             readonly: false,
             forceDefault: true,
             order: 3,
         },
         Door_2: {
             type: 'alarm',
-            value: dev[door2RealTopic],
+            value: false,
             readonly: false,
             forceDefault: true,
             order: 4,

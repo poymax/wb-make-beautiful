@@ -55,12 +55,13 @@ defineRule('cooler1Mode', {
     }
 })
 
-defineRule('cooler1Temp', {
-    whenChanged: cooler1['tempSensor'],
-    then: function(newValue) {
-        dev['virtualCooler/Temperature'] = newValue
-    }
-})
+if (cooler1['tempSensor'])
+    defineRule('cooler1Temp', {
+        whenChanged: cooler1['tempSensor'],
+        then: function(newValue) {
+            dev['virtualCooler/Temperature'] = newValue
+        }
+    })
 
 defineRule('cooler2Present', {
     whenChanged: 'virtualCooler/Cooler2_present',
@@ -76,12 +77,14 @@ defineRule('cooler2Mode', {
     }
 })
 
-defineRule('cooler2Temp', {
-    whenChanged: cooler2['tempSensor'],
-    then: function(newValue) {
-        dev['virtualCooler/Cooler2_temperature'] = newValue
-    }
-})
+if (cooler2['tempSensor']) {
+    defineRule('cooler2Temp', {
+        whenChanged: cooler2['tempSensor'],
+        then: function(newValue) {
+            dev['virtualCooler/Cooler2_temperature'] = newValue
+        }
+    })
+}
 
 secondCoolerControls(dev['virtualCooler/Cooler2_present'])
 

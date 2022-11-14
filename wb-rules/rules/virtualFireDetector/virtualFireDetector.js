@@ -27,14 +27,14 @@ defineVirtualDevice('virtualFireDetector', {
         },
         Detector_1: {
             type: 'alarm',
-            value: dev[fireDetector1RealTopic],
+            value: false,
             readonly: false,
             forceDefault: true,
             order: 3,
         },
         Detector_2: {
             type: 'alarm',
-            value: dev[fireDetector2RealTopic],
+            value: false,
             readonly: false,
             forceDefault: true,
             order: 4,
