@@ -29,44 +29,44 @@ if (config['humidity']) {
     })
 }
 
-defineRule('manualControl', {
-    whenChanged: 'virtualController/Manual_control',
-    then: function(newValue) {
-        getControl('virtualController/FAN').setReadonly(!newValue || !dev['virtualController/FAN_present'])
-        getControl('virtualController/Heater').setReadonly(!newValue || !dev['virtualController/Heater_present'])
-        getControl('virtualController/WinKit').setReadonly(!newValue || !dev['virtualController/WinKit_present'])
-    }
-})
+// defineRule('manualControl', {
+//     whenChanged: 'virtualController/Manual_control',
+//     then: function(newValue) {
+//         getControl('virtualController/FAN').setReadonly(!newValue || !dev['virtualController/FAN_present'])
+//         getControl('virtualController/Heater').setReadonly(!newValue || !dev['virtualController/Heater_present'])
+//         getControl('virtualController/WinKit').setReadonly(!newValue || !dev['virtualController/WinKit_present'])
+//     }
+// })
 
-defineRule('fanPresent', {
-    whenChanged: 'virtualController/FAN_present',
-    then: function(newValue) {
-        getControl('virtualController/FAN').setReadonly(!newValue || !dev['virtualController/Manual_control'])
-        if (!newValue) {
-            dev['virtualController/FAN'] = false
-        }
-    }
-})
+// defineRule('fanPresent', {
+//     whenChanged: 'virtualController/FAN_present',
+//     then: function(newValue) {
+//         getControl('virtualController/FAN').setReadonly(!newValue || !dev['virtualController/Manual_control'])
+//         if (!newValue) {
+//             dev['virtualController/FAN'] = false
+//         }
+//     }
+// })
 
-defineRule('heaterPresent', {
-    whenChanged: 'virtualController/Heater_present',
-    then: function(newValue) {
-        getControl('virtualController/Heater').setReadonly(!newValue || !dev['virtualController/Manual_control'])
-        if (!newValue) {
-            dev['virtualController/Heater'] = false
-        }
-    }
-})
+// defineRule('heaterPresent', {
+//     whenChanged: 'virtualController/Heater_present',
+//     then: function(newValue) {
+//         getControl('virtualController/Heater').setReadonly(!newValue || !dev['virtualController/Manual_control'])
+//         if (!newValue) {
+//             dev['virtualController/Heater'] = false
+//         }
+//     }
+// })
 
-defineRule('winKitPresent', {
-    whenChanged: 'virtualController/WinKit_present',
-    then: function(newValue) {
-        getControl('virtualController/WinKit').setReadonly(!newValue || !dev['virtualController/Manual_control'])
-        if (!newValue) {
-            dev['virtualController/WinKit'] = false
-        }
-    }
-})
+// defineRule('winKitPresent', {
+//     whenChanged: 'virtualController/WinKit_present',
+//     then: function(newValue) {
+//         getControl('virtualController/WinKit').setReadonly(!newValue || !dev['virtualController/Manual_control'])
+//         if (!newValue) {
+//             dev['virtualController/WinKit'] = false
+//         }
+//     }
+// })
 
 if (config['fan']) {
     defineRule('fan', {

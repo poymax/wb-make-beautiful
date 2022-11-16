@@ -39,7 +39,7 @@ defineVirtualDevice('virtualController', {
         FAN: {
             type: 'switch',
             value: false,
-            readonly: true,
+            readonly: false,
             order: 6,
         },
 
@@ -53,7 +53,7 @@ defineVirtualDevice('virtualController', {
         Heater: {
             type: 'switch',
             value: false,
-            readonly: true,
+            readonly: false,
             order: 8,
         },
 
@@ -67,7 +67,7 @@ defineVirtualDevice('virtualController', {
         WinKit: {
             type: 'switch',
             value: false,
-            readonly: true,
+            readonly: false,
             order: 10,
         },
 
