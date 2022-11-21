@@ -23,9 +23,16 @@ function secondCoolerControls(enabled) {
             readonly: true,
             order: 5,
         })
+        device.addControl('Delta', {
+            type: 'temperature',
+            value: 0,
+            readonly: false,
+            order: 6,
+        })
     } else {
         device.removeControl('Cooler2_mode')
         device.removeControl('Cooler2_temperature')
+        device.removeControl('Delta')
     }
 }
 
