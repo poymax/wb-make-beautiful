@@ -2,6 +2,11 @@ var PATH_TO_CONFIG = '/etc/wb-rules/virtualACdetector/config.conf'
 
 var config = readConfig(PATH_TO_CONFIG)
 
+var type = config['type']
+var invertBoolean = config['invertBoolean']
+var valueThreshold = config['valueThreshold']
+var realTopic = config['realTopic']
+
 defineVirtualDevice('virtualACdetector', {
     title: 'Virtual AC detector',
     cells: {
@@ -20,16 +25,16 @@ function setACalarm(status) {
 }
 
 function checkACalarm(value) {
-    switch(config['type']) {
+    switch(type) {
         case 'value':
-            if (value <= 0) {
+            if (value <= valueThreshold) {
                 setACalarm(true)
             } else {
                 setACalarm(false)
             }
             break
         case 'boolean':
-            if (config['needToFlipBoolean']) {
+            if (invertBoolean) {
                 setACalarm(!value)
             } else {
                 setACalarm(value)
@@ -43,22 +48,22 @@ function checkACalarm(value) {
             }
             break
         default:
-            log.error('Wrong type "{}" in {}. Type must be "value", "boolean" or "error"', config['type'], PATH_TO_CONFIG);
+            log.error('Wrong type "{}" in {}. Type must be "value", "boolean" or "error"', type, PATH_TO_CONFIG);
             break
     }
 }
 
-if (config['topic']) {
-    if (config['type'] == 'error') {
-        checkACalarm(dev[config['topic'] + '#error'])
+if (realTopic) {
+    if (type === 'error') {
+        checkACalarm(dev[realTopic + '#error'])
     } else {
-        checkACalarm(dev[config['topic']])
+        checkACalarm(dev[realTopic])
     }
 
     defineRule('virtualACalarm', {
         whenChanged: [
-            config['topic'] + '#error',
-            config['topic']
+            realTopic + '#error',
+            realTopic
         ],
         then: function(newValue) {
             checkACalarm(newValue)
