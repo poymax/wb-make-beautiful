@@ -2,12 +2,15 @@ var PATH_TO_CONFIG = '/etc/wb-rules/virtualFireDetector/config.conf'
 
 var config = readConfig(PATH_TO_CONFIG)
 
-var fireDetector1RealTopic = config['fireDetector1']
-var fireDetector2RealTopic = config['fireDetector2']
+var detector1RealTopic = config['fireDetector1']
+var detector2RealTopic = config['fireDetector2']
+var invertDetector1 = config['invertDetector1']
+var invertDetector2 = config['invertDetector2']
+
 var fireAlarmTopic = 'virtualFireDetector/Fire'
-var fireDetector1VirtualTopic = 'virtualFireDetector/Detector_1'
-var fireDetector2VirtualTopic = 'virtualFireDetector/Detector_2'
-var fireDetectorPresentTopic = 'virtualFireDetector/Fire_detector_present'
+var detector1VirtualTopic = 'virtualFireDetector/Detector_1'
+var detector2VirtualTopic = 'virtualFireDetector/Detector_2'
+var detectorPresentTopic = 'virtualFireDetector/Fire_detector_present'
 
 defineVirtualDevice('virtualFireDetector', {
     title: 'Virtual fire detector',
@@ -43,33 +46,33 @@ defineVirtualDevice('virtualFireDetector', {
 })
 
 function checkFireAlarm() {
-    dev[fireAlarmTopic] = dev[fireDetector1VirtualTopic] 
-                        && dev[fireDetector2VirtualTopic] 
-                        && dev[fireDetectorPresentTopic]
+    dev[fireAlarmTopic] = dev[detector1VirtualTopic] && dev[detector2VirtualTopic] && dev[detectorPresentTopic]
 }
 
-if (fireDetector1RealTopic) {
-    defineRule('virtualDetector1', {
-        whenChanged: fireDetector1RealTopic,
-        then: function(newValue) {
-            dev[fireDetector1VirtualTopic] = newValue
+if (detector1RealTopic) {
+    var virtualDetector1Rule = defineRule('virtualDetector1', {
+        whenChanged: detector1RealTopic,
+        then: function() {
+            dev[detector1VirtualTopic] = invertDetector1 ? !dev[detector1RealTopic] : dev[detector1RealTopic]
             checkFireAlarm()
         }
     })
+    runRule(virtualDetector1Rule)
 }
 
-if (fireDetector2RealTopic) {
-    defineRule('virtualDetector2', {
-        whenChanged: fireDetector2RealTopic,
-        then: function(newValue) {
-            dev[fireDetector2VirtualTopic] = newValue
+if (detector2RealTopic) {
+    var virtualDetector2Rule = defineRule('virtualDetector2', {
+        whenChanged: detector2RealTopic,
+        then: function() {
+            dev[detector2VirtualTopic] = invertDetector2 ? !dev[detector2RealTopic] : dev[detector2RealTopic]
             checkFireAlarm()
         }
     })
+    runRule(virtualDetector2Rule)
 }
 
 defineRule('checkFireDetectorPresent', {
-    whenChanged: fireDetectorPresentTopic,
+    whenChanged: detectorPresentTopic,
     then: checkFireAlarm
 })
 
