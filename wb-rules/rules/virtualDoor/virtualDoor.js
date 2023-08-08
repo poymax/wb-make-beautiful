@@ -49,23 +49,25 @@ function checkDoorsAlarm() {
 }
 
 if (door1RealTopic) {
-    defineRule('virtualDoor1', {
+    var virtualDoor1Rule = defineRule('virtualDoor1', {
         whenChanged: door1RealTopic,
-        then: function (newValue) {
-            dev[door1VirtualTopic] = invertDoor1 ? !newValue : newValue
+        then: function() {
+            dev[door1VirtualTopic] = invertDoor1 ? !dev[door1RealTopic] : dev[door1RealTopic]
             checkDoorsAlarm()
         }
     })
+    runRule(virtualDoor1Rule)
 }
 
 if (door2RealTopic) {
-    defineRule('virtualDoor2', {
+    var virtualDoor2Rule = defineRule('virtualDoor2', {
         whenChanged: door2RealTopic,
-        then: function (newValue) {
-            dev[door2VirtualTopic] = invertDoor2 ? !newValue : newValue
+        then: function() {
+            dev[door2VirtualTopic] = invertDoor2 ? !dev[door2RealTopic] : dev[door2RealTopic]
             checkDoorsAlarm()
         }
     })
+    runRule(virtualDoor2Rule)
 }
 
 defineRule('checkDoorPresent', {
