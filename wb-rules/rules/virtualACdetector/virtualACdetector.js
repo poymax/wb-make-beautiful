@@ -7,6 +7,8 @@ var invertBoolean = config['invertBoolean']
 var valueThreshold = config['valueThreshold']
 var realTopic = config['realTopic']
 
+var virtualACDetectorTopic = 'virtualACdetector/AC'
+
 defineVirtualDevice('virtualACdetector', {
     title: 'Virtual AC detector',
     cells: {
@@ -21,7 +23,7 @@ defineVirtualDevice('virtualACdetector', {
 })
 
 function setACalarm(status) {
-    dev['virtualACdetector/AC'] = status
+    dev[virtualACDetectorTopic] = status
 }
 
 function checkACalarm(value) {
