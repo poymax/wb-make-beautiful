@@ -29,25 +29,13 @@ function setACalarm(status) {
 function checkACalarm(value) {
     switch(type) {
         case 'value':
-            if (value <= valueThreshold) {
-                setACalarm(true)
-            } else {
-                setACalarm(false)
-            }
+            setACalarm(value <= valueThreshold)
             break
         case 'boolean':
-            if (invertBoolean) {
-                setACalarm(!value)
-            } else {
-                setACalarm(value)
-            }
+            setACalarm(invertBoolean ? !value : value)
             break
         case 'error':
-            if (value !== undefined) {
-                setACalarm(true)
-            } else {
-                setACalarm(false)
-            }
+            setACalarm(value !== undefined)
             break
         default:
             log.error('Wrong type "{}" in {}. Type must be "value", "boolean" or "error"', type, PATH_TO_CONFIG);
