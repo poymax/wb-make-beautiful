@@ -29,22 +29,29 @@ function secondCoolerControls(enabled) {
             readonly: false,
             order: 6,
         })
+        device.addControl('Rotation', {
+            type: 'switch',
+            value: true,
+            readonly: false,
+            order: 7,
+        })
         device.addControl('Cooler1', {
             type: 'text',
             value: cooler1['name'],
             readonly: true,
-            order: 7,
+            order: 8,
         })
         device.addControl('Cooler2', {
             type: 'text',
             value: cooler2['name'],
             readonly: true,
-            order: 8,
+            order: 9,
         })
     } else {
         device.removeControl('Cooler2_mode')
         device.removeControl('Cooler2_temperature')
         device.removeControl('Delta')
+        device.removeControl('Rotation')
         device.removeControl('Cooler1')
         device.removeControl('Cooler2')
     }
@@ -111,7 +118,7 @@ if (cooler2) {
     defineRule('coolerRotation', {
         when: cron(config['cronRotationRule']),
         then: function () {
-            if (dev['virtualCooler/Cooler2_present']) {
+            if (dev['virtualCooler/Cooler2_present'] && dev['virtualCooler/Rotation']) {
                 cooler2 = [cooler1, cooler1 = cooler2][0];
                 dev['virtualCooler/Cooler1'] = cooler1['name']
                 dev['virtualCooler/Cooler2'] = cooler2['name']
