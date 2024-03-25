@@ -35,23 +35,29 @@ function secondCoolerControls(enabled) {
             readonly: false,
             order: 7,
         })
+        device.addControl('Rotate', {
+            type: 'pushbutton',
+            readonly: false,
+            order: 8,
+        })
         device.addControl('Cooler1', {
             type: 'text',
             value: cooler1['name'],
             readonly: true,
-            order: 8,
+            order: 9,
         })
         device.addControl('Cooler2', {
             type: 'text',
             value: cooler2['name'],
             readonly: true,
-            order: 9,
+            order: 10,
         })
     } else {
         device.removeControl('Cooler2_mode')
         device.removeControl('Cooler2_temperature')
         // device.removeControl('Delta')
         device.removeControl('Rotation')
+        device.removeControl('Rotate')
         device.removeControl('Cooler1')
         device.removeControl('Cooler2')
     }
@@ -74,6 +80,13 @@ function sendCommand(device, command) {
     } else {
         log.warning('Command "{}" not found in {}', command, deviceName)
     }
+}
+
+function doRotation() {
+    cooler2 = [cooler1, cooler1 = cooler2][0]
+    dev['virtualCooler/Cooler1'] = cooler1['name']
+    dev['virtualCooler/Cooler2'] = cooler2['name']
+    log.info('virtualCooler:::Cooler has been rotated. Now cooler 1: {}, cooler 2: {}', cooler1['name'], cooler2['name'])
 }
 
 defineRule('cooler1Mode', {
@@ -105,6 +118,11 @@ defineRule('cooler2Mode', {
     }
 })
 
+defineRule('rotate', {
+    whenChanged: 'virtualCooler/Rotate',
+    then: doRotation,
+})
+
 if (cooler2['tempSensor']) {
     defineRule('cooler2Temp', {
         whenChanged: cooler2['tempSensor'],
@@ -119,13 +137,10 @@ if (cooler2) {
         when: cron(config['cronRotationRule']),
         then: function () {
             if (dev['virtualCooler/Cooler2_present'] && dev['virtualCooler/Rotation']) {
-                cooler2 = [cooler1, cooler1 = cooler2][0];
-                dev['virtualCooler/Cooler1'] = cooler1['name']
-                dev['virtualCooler/Cooler2'] = cooler2['name']
-                log.info('virtualCooler:::Cooler has rotated. Now cooler 1: {}, cooler 2: {}', cooler1['name'], cooler2['name'])
+                doRotation()
             }
         }
-    });
+    })
 }
 
 secondCoolerControls(dev['virtualCooler/Cooler2_present'])
