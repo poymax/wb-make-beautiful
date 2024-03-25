@@ -52,6 +52,19 @@ function secondCoolerControls(enabled) {
             readonly: true,
             order: 10,
         })
+        device.addControl('Last_rotation', {
+            type: 'text',
+            value: new Date(0).toLocaleString(),
+            readonly: true,
+            order: 11,
+        })
+        device.addControl('Last_rotation_unix', {
+            type: 'value',
+            units: 's',
+            value: 0,
+            readonly: true,
+            order: 12,
+        })
     } else {
         device.removeControl('Cooler2_mode')
         device.removeControl('Cooler2_temperature')
@@ -60,6 +73,8 @@ function secondCoolerControls(enabled) {
         device.removeControl('Rotate')
         device.removeControl('Cooler1')
         device.removeControl('Cooler2')
+        device.removeControl('Last_rotation')
+        device.removeControl('Last_rotation_unix')
     }
 }
 
@@ -82,10 +97,17 @@ function sendCommand(device, command) {
     }
 }
 
+function updateLastRotation() {
+    date = new Date()
+    dev['virtualCooler/Last_rotation'] = date.toLocaleString()
+    dev['virtualCooler/Last_rotation_unix'] = Math.floor(date.getTime() / 1000)
+}
+
 function doRotation() {
     cooler2 = [cooler1, cooler1 = cooler2][0]
     dev['virtualCooler/Cooler1'] = cooler1['name']
     dev['virtualCooler/Cooler2'] = cooler2['name']
+    updateLastRotation()
     log.info('virtualCooler:::Cooler has been rotated. Now cooler 1: {}, cooler 2: {}', cooler1['name'], cooler2['name'])
 }
 
