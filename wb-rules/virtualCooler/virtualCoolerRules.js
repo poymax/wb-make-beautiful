@@ -23,12 +23,12 @@ function secondCoolerControls(enabled) {
             readonly: true,
             order: 5,
         })
-        device.addControl('Delta', {
-            type: 'temperature',
-            value: 0,
-            readonly: false,
-            order: 6,
-        })
+        // device.addControl('Delta', {
+        //     type: 'temperature',
+        //     value: 0,
+        //     readonly: false,
+        //     order: 6,
+        // })
         device.addControl('Rotation', {
             type: 'switch',
             value: true,
@@ -50,7 +50,7 @@ function secondCoolerControls(enabled) {
     } else {
         device.removeControl('Cooler2_mode')
         device.removeControl('Cooler2_temperature')
-        device.removeControl('Delta')
+        // device.removeControl('Delta')
         device.removeControl('Rotation')
         device.removeControl('Cooler1')
         device.removeControl('Cooler2')
