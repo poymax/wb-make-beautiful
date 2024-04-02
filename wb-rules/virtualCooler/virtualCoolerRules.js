@@ -66,6 +66,11 @@ function secondCoolerControls(enabled) {
             order: 12,
         })
     } else {
+        if (dev['virtualCooler/Cooler1'] !== config['cooler1']['name']) {
+            doRotation()
+            log.info('virtualCooler:::Default cooler config restored. Now cooler 1: {}', cooler1['name'])
+        }
+
         device.removeControl('Cooler2_mode')
         device.removeControl('Cooler2_temperature')
         // device.removeControl('Delta')
@@ -91,9 +96,9 @@ function sendCommand(device, command) {
         }
 
         dev[commands[command]] = value
-        log.debug('Command "{}" sent to {}', command, deviceName)
+        log.debug('virtualCooler:::Command "{}" sent to {}', command, deviceName)
     } else {
-        log.warning('Command "{}" not found in {}', command, deviceName)
+        log.warning('virtualCooler:::Command "{}" not found in {}', command, deviceName)
     }
 }
 
