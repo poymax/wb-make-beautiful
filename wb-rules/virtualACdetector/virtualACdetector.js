@@ -44,15 +44,15 @@ function checkACalarm(value) {
 }
 
 if (realTopic) {
-    if (type === 'error') {
-        checkACalarm(dev[realTopic + '#error'])
-    } else {
+    // if (type === 'error') {
+    //     checkACalarm(dev[realTopic + '#error'])
+    // } else {
         checkACalarm(dev[realTopic])
-    }
+    // }
 
     defineRule('virtualACalarm', {
         whenChanged: [
-            realTopic + '#error',
+            // realTopic + '#error',
             realTopic
         ],
         then: function(newValue) {

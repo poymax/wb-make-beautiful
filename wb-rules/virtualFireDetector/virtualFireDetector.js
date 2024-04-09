@@ -10,43 +10,36 @@ var invertDetector2 = config['invertDetector2']
 var fireAlarmTopic = 'virtualFireDetector/Fire'
 var detector1VirtualTopic = 'virtualFireDetector/Detector_1'
 var detector2VirtualTopic = 'virtualFireDetector/Detector_2'
-var detectorPresentTopic = 'virtualFireDetector/Fire_detector_present'
 
 defineVirtualDevice('virtualFireDetector', {
     title: 'Virtual fire detector',
     cells: {
-        Fire_detector_present: {
-            type: 'switch',
-            value: false,
-            readonly: false,
-            order: 1,
-        },
         Fire: {
             type: 'alarm',
             value: false,
             readonly: false,
             forceDefault: true,
-            order: 2,
+            order: 1,
         },
         Detector_1: {
             type: 'alarm',
             value: false,
             readonly: false,
             forceDefault: true,
-            order: 3,
+            order: 2,
         },
         Detector_2: {
             type: 'alarm',
             value: false,
             readonly: false,
             forceDefault: true,
-            order: 4,
+            order: 3,
         },
     }
 })
 
 function checkFireAlarm() {
-    dev[fireAlarmTopic] = dev[detector1VirtualTopic] && dev[detector2VirtualTopic] && dev[detectorPresentTopic]
+    dev[fireAlarmTopic] = dev[detector1VirtualTopic] && dev[detector2VirtualTopic]
 }
 
 if (detector1RealTopic) {
@@ -70,10 +63,5 @@ if (detector2RealTopic) {
     })
     runRule(virtualDetector2Rule)
 }
-
-defineRule('checkFireDetectorPresent', {
-    whenChanged: detectorPresentTopic,
-    then: checkFireAlarm
-})
 
 checkFireAlarm()
