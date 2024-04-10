@@ -95,6 +95,15 @@ if (config['winKit']) {
     })
 }
 
+if (config['lightning']) {
+    defineRule('lightning', {
+        whenChanged: 'virtualController/Lightning',
+        then: function(newValue) {
+            dev[config['lightning']] = newValue
+        }
+    })
+}
+
 defineRule('restartRules', {
     whenChanged: 'virtualController/Restart_rules',
     then: function() {
