@@ -170,7 +170,13 @@ if (cooler2) {
     })
 }
 
-secondCoolerControls(dev['virtualCooler/Cooler2_present'])
+if (dev['virtualCooler/Cooler2_present']) {
+    secondCoolerControls(true)
+
+    if (dev['virtualCooler/Cooler1'] !== cooler1['name']) {
+        doRotation()
+    }
+}
 
 if (sendingInterval1 !== 0) {
     setInterval(function() { sendCommand(cooler1, dev['virtualCooler/Mode']) }, sendingInterval1)
