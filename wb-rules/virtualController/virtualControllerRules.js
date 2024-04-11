@@ -104,6 +104,20 @@ if (config['lightning']) {
     })
 }
 
+if (config['tOutSwitching']) {
+    getControl('virtualController/tOUT_switching').setReadonly(true)
+    dev['virtualController/tOUT_switching'] = dev[config['tOutSwitching']]
+
+    defineRule('tOutSwitchingObserver', {
+        whenChanged: config['tOutSwitching'],
+        then: function(newValue) {
+            dev['virtualController/tOUT_switching'] = newValue
+        }
+    })
+
+    log.info('virtualController:::tOUT_switching is now sync automatically with the "{}" topic', config['tOutSwitching'])
+}
+
 defineRule('restartRules', {
     whenChanged: 'virtualController/Restart_rules',
     then: function() {
