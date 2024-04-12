@@ -9,6 +9,7 @@ var vFanValueTopic = 'Out_temp_calc/V_fan'
 var outTempTopic = 'Out_temp_calc/t_out'
 
 var tInTopic = 'virtualController/tIN_cooling'
+var fanTopic = 'virtualController/FAN'
 
 function fixPowerFan(enabled) {
     var device = getDevice('Out_temp_calc')
@@ -28,7 +29,7 @@ function fixPowerFan(enabled) {
 }
 
 function setOutTemp() {
-    fanCurrentFormula = dev[fixPowerFanEnableTopic] ? dev[fanPowerValueTopic] : dev[fanCurrentTopic] * 220
+    fanCurrentFormula = dev[fanTopic] ? (dev[fixPowerFanEnableTopic] ? dev[fanPowerValueTopic] : dev[fanCurrentTopic] * 220) : 0
     dev[outTempTopic] = Math.floor(dev[tInTopic] - ((dev[fullPowerTopic] - dev[cool1PowerTopic] - dev[cool2PowerTopic] - fanCurrentFormula) / 1000 / (dev[vFanValueTopic] / 1.1 / 3600) * 1.2 * 1.02))
 }
 
