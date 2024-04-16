@@ -1,0 +1,2674 @@
+[
+    {
+        "id": "71eb007304ebc98b",
+        "type": "tab",
+        "label": "Node Simulator",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "da4e1a4831041523",
+        "type": "change",
+        "z": "71eb007304ebc98b",
+        "name": "variablesName",
+        "rules": [
+            {
+                "t": "set",
+                "p": "ac",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualACdetector/controls/AC\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "fan",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/FAN\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "heater",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/Heater\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "humidity",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/Humidity\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "manualControl",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/Manual_control\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "tBox",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/tIN\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "tStreet",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/tOUT\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "fanPresent",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/FAN_present\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "heaterPresent",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/Heater_present\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "winKitPresent",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/WinKit_present\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "tBoxCooling",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/tIN_cooling\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "tBoxCoolingDeltaCooler",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/tIN_cooling_delta_cooler\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "tBoxCoolingDeltaFan",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/tIN_cooling_delta_fan\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "cooler2Present",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualCooler/controls/Cooler2_present\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "tBoxOverheat",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/tIN_overheat\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "tBoxHeating",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/tIN_heating\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "tStreetWinKit",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/tOUT_winKit\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "tStreetWinKitDelta",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/tOUT_winKit_delta\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "tStreetSwitching",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/tOUT_switching\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "tStreetSwitchingDelta",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/tOUT_switching_delta\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "tBoxHeatingDelta",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/tIN_heating_delta\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "humidityThreshold",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/Humidity_threshold\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "doorPresent",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualDoor/controls/Door_present\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "door",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualDoor/controls/Door\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "fireDetectorPresent",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualFireDetector/controls/Fire_detector_present\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "fire",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualFireDetector/controls/Fire\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "coolerTemperature",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualCooler/controls/Temperature\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "tBoxOverheatDelta",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/tIN_overheat_delta\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "humidityThresholdDelta",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/Humidity_threshold_delta\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "shtylStatus",
+                "pt": "msg",
+                "to": "payload[\"/devices/shtyl/controls/Work status\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 40,
+        "wires": [
+            [
+                "d8af95556565cbd3"
+            ]
+        ]
+    },
+    {
+        "id": "322bf063138d8adc",
+        "type": "switch",
+        "z": "71eb007304ebc98b",
+        "name": "manualControlCheck",
+        "property": "manualControl",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 940,
+        "y": 40,
+        "wires": [
+            [
+                "5d1330b221761ec0",
+                "f2fb26377c043672"
+            ]
+        ]
+    },
+    {
+        "id": "c8e0c53c6611f48d",
+        "type": "switch",
+        "z": "71eb007304ebc98b",
+        "name": "tºC_street",
+        "property": "tStreet",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "tStreetWinKit",
+                "vt": "msg"
+            },
+            {
+                "t": "gt",
+                "v": "winkitDelta",
+                "vt": "msg"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 100,
+        "y": 180,
+        "wires": [
+            [
+                "e8f665f0e9c0204f"
+            ],
+            [
+                "c4888bc4a5578892"
+            ]
+        ]
+    },
+    {
+        "id": "5dc51a2df621feda",
+        "type": "function",
+        "z": "71eb007304ebc98b",
+        "name": "winKitDelta",
+        "func": "var tWinKit = msg.tStreetWinKit;\nvar delta = msg.tStreetWinKitDelta;\nmsg.winkitDelta = tWinKit + delta;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 110,
+        "y": 140,
+        "wires": [
+            [
+                "c8e0c53c6611f48d"
+            ]
+        ]
+    },
+    {
+        "id": "d8af95556565cbd3",
+        "type": "change",
+        "z": "71eb007304ebc98b",
+        "name": "variablesNumber",
+        "rules": [
+            {
+                "t": "set",
+                "p": "ac",
+                "pt": "msg",
+                "to": "$number(ac)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "fan",
+                "pt": "msg",
+                "to": "$number(fan)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "heater",
+                "pt": "msg",
+                "to": "$number(heater)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "humidity",
+                "pt": "msg",
+                "to": "$number(humidity)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "manualControl",
+                "pt": "msg",
+                "to": "$number(manualControl)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "tBox",
+                "pt": "msg",
+                "to": "$number(tBox)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "tStreet",
+                "pt": "msg",
+                "to": "$number(tStreet)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "fanPresent",
+                "pt": "msg",
+                "to": "$number(fanPresent)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "heaterPresent",
+                "pt": "msg",
+                "to": "$number(heaterPresent)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "winKitPresent",
+                "pt": "msg",
+                "to": "$number(winKitPresent)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "tBoxCooling",
+                "pt": "msg",
+                "to": "$number(tBoxCooling)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "tBoxOverheat",
+                "pt": "msg",
+                "to": "$number(tBoxOverheat)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "tBoxHeating",
+                "pt": "msg",
+                "to": "$number(tBoxHeating)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "tStreetWinKit",
+                "pt": "msg",
+                "to": "$number(tStreetWinKit)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "tStreetSwitching",
+                "pt": "msg",
+                "to": "$number(tStreetSwitching)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "humidityThreshold",
+                "pt": "msg",
+                "to": "$number(humidityThreshold)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "doorPresent",
+                "pt": "msg",
+                "to": "$number(doorPresent)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "door",
+                "pt": "msg",
+                "to": "$number(door)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "door1",
+                "pt": "msg",
+                "to": "$number(door1)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "door2",
+                "pt": "msg",
+                "to": "$number(door2)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "fireDetectorPresent",
+                "pt": "msg",
+                "to": "$number(fireDetectorPresent)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "fire",
+                "pt": "msg",
+                "to": "$number(fire)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "fireDetector1",
+                "pt": "msg",
+                "to": "$number(fireDetector1)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "fireDetector2",
+                "pt": "msg",
+                "to": "$number(fireDetector2)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "coolerTemperature",
+                "pt": "msg",
+                "to": "$number(coolerTemperature)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "tBoxCoolingDeltaCooler",
+                "pt": "msg",
+                "to": "$number(tBoxCoolingDeltaCooler)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "tBoxCoolingDeltaFan",
+                "pt": "msg",
+                "to": "$number(tBoxCoolingDeltaFan)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "tBoxOverheatDelta",
+                "pt": "msg",
+                "to": "$number(tBoxOverheatDelta)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "tBoxHeatingDelta",
+                "pt": "msg",
+                "to": "$number(tBoxHeatingDelta)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "tStreetWinKitDelta",
+                "pt": "msg",
+                "to": "$number(tStreetWinKitDelta)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "tStreetSwitchingDelta",
+                "pt": "msg",
+                "to": "$number(tStreetSwitchingDelta)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "humidityThresholdDelta",
+                "pt": "msg",
+                "to": "$number(humidityThresholdDelta)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "coolerDelta",
+                "pt": "msg",
+                "to": "$number(coolerDelta)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 40,
+        "wires": [
+            [
+                "7a4944b6848a64c2"
+            ]
+        ]
+    },
+    {
+        "id": "31637cbd1b93e302",
+        "type": "delay",
+        "z": "71eb007304ebc98b",
+        "name": "delay",
+        "pauseType": "timed",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "5",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 230,
+        "y": 40,
+        "wires": [
+            [
+                "da4e1a4831041523"
+            ]
+        ]
+    },
+    {
+        "id": "f2fb26377c043672",
+        "type": "switch",
+        "z": "71eb007304ebc98b",
+        "name": "winKitPresent",
+        "property": "winKitPresent",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 120,
+        "y": 100,
+        "wires": [
+            [
+                "5dc51a2df621feda"
+            ]
+        ]
+    },
+    {
+        "id": "864bdad352423135",
+        "type": "wirenboard-in",
+        "z": "71eb007304ebc98b",
+        "name": "NK Node",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualCooler/controls/Temperature",
+            "/devices/virtualController/controls/FAN_present",
+            "/devices/virtualController/controls/Heater_present",
+            "/devices/virtualController/controls/Humidity",
+            "/devices/virtualController/controls/Humidity_threshold",
+            "/devices/virtualController/controls/Humidity_threshold_delta",
+            "/devices/virtualController/controls/Manual_control",
+            "/devices/virtualController/controls/WinKit_present",
+            "/devices/virtualController/controls/tIN",
+            "/devices/virtualController/controls/tIN_cooling",
+            "/devices/virtualController/controls/tIN_heating",
+            "/devices/virtualController/controls/tIN_heating_delta",
+            "/devices/virtualController/controls/tIN_overheat",
+            "/devices/virtualController/controls/tIN_overheat_delta",
+            "/devices/virtualController/controls/tOUT",
+            "/devices/virtualController/controls/tOUT_switching",
+            "/devices/virtualController/controls/tOUT_switching_delta",
+            "/devices/virtualController/controls/tOUT_winKit",
+            "/devices/virtualController/controls/tOUT_winKit_delta",
+            "/devices/virtualController/controls/tIN_cooling_delta_cooler",
+            "/devices/virtualController/controls/tIN_cooling_delta_fan",
+            "/devices/virtualCooler/controls/Cooler2_present",
+            "/devices/virtualDoor/controls/Door",
+            "/devices/virtualDoor/controls/Door_present",
+            "/devices/virtualFireDetector/controls/Fire",
+            "/devices/shtyl/controls/Work status",
+            "/devices/wb-m1w2_40/controls/Input 1",
+            "/devices/virtualACdetector/controls/AC"
+        ],
+        "outputAtStartup": true,
+        "x": 100,
+        "y": 40,
+        "wires": [
+            [
+                "31637cbd1b93e302"
+            ]
+        ]
+    },
+    {
+        "id": "e8f665f0e9c0204f",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "winKit ON",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualController/controls/WinKit"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "on",
+        "payloadType": "msg",
+        "rbe": true,
+        "x": 280,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "7a4944b6848a64c2",
+        "type": "change",
+        "z": "71eb007304ebc98b",
+        "name": "commands",
+        "rules": [
+            {
+                "t": "set",
+                "p": "off",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "on",
+                "pt": "msg",
+                "to": "1",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "coolerOff",
+                "pt": "msg",
+                "to": "OFF",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "coolerFan",
+                "pt": "msg",
+                "to": "FAN",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "coolerFreeze",
+                "pt": "msg",
+                "to": "tBoxCooling",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 40,
+        "wires": [
+            [
+                "322bf063138d8adc"
+            ]
+        ]
+    },
+    {
+        "id": "c4888bc4a5578892",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "winKit OFF",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualController/controls/WinKit"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "off",
+        "payloadType": "msg",
+        "rbe": true,
+        "x": 290,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "5d1330b221761ec0",
+        "type": "switch",
+        "z": "71eb007304ebc98b",
+        "name": "checkFire",
+        "property": "fire",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 100,
+        "y": 360,
+        "wires": [
+            [
+                "442285720a831f61",
+                "3312e7ed5773fd8d",
+                "896c6e813be22a6d",
+                "7d3633e27bbcc885"
+            ],
+            [
+                "871cb4155e305925",
+                "b498a97a60319266"
+            ]
+        ],
+        "icon": "font-awesome/fa-fire-extinguisher"
+    },
+    {
+        "id": "442285720a831f61",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "fan OFF",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualController/controls/FAN"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "off",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 540,
+        "y": 260,
+        "wires": [],
+        "icon": "font-awesome/fa-close"
+    },
+    {
+        "id": "3312e7ed5773fd8d",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "heater OFF",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualController/controls/Heater"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "off",
+        "payloadType": "msg",
+        "rbe": true,
+        "x": 550,
+        "y": 300,
+        "wires": [],
+        "icon": "font-awesome/fa-close"
+    },
+    {
+        "id": "896c6e813be22a6d",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "freezer ON",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualCooler/controls/Mode"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "coolerFreeze",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 550,
+        "y": 340,
+        "wires": [],
+        "icon": "font-awesome/fa-snowflake-o"
+    },
+    {
+        "id": "7d3633e27bbcc885",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "manual control",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualController/controls/Manual_control"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "on",
+        "payloadType": "msg",
+        "rbe": true,
+        "x": 560,
+        "y": 380,
+        "wires": [],
+        "icon": "font-awesome/fa-hand-stop-o"
+    },
+    {
+        "id": "871cb4155e305925",
+        "type": "switch",
+        "z": "71eb007304ebc98b",
+        "name": "acAlarm",
+        "property": "ac",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 100,
+        "y": 560,
+        "wires": [
+            [
+                "55f7eed8fc1ccd86",
+                "e8054348c8e765c3",
+                "4d1826b1f0943b7c",
+                "8d6fe1b62f153714",
+                "899a43ef9b97af43"
+            ],
+            [
+                "e8054348c8e765c3",
+                "f6f742dc9ad4ea9a",
+                "e32b8aad87968054",
+                "6aa582cbd67a6794"
+            ]
+        ],
+        "icon": "font-awesome/fa-flash"
+    },
+    {
+        "id": "55f7eed8fc1ccd86",
+        "type": "switch",
+        "z": "71eb007304ebc98b",
+        "name": "checkFanPresent",
+        "property": "fanPresent",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 570,
+        "y": 460,
+        "wires": [
+            [],
+            [
+                "70377ebc90dcb84f"
+            ]
+        ],
+        "icon": "font-awesome/fa-spinner"
+    },
+    {
+        "id": "54b669699a219269",
+        "type": "switch",
+        "z": "71eb007304ebc98b",
+        "name": "tºC_Box",
+        "property": "tBox",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "tBoxCooling",
+                "vt": "msg"
+            },
+            {
+                "t": "lt",
+                "v": "payload",
+                "vt": "msg"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 920,
+        "y": 460,
+        "wires": [
+            [
+                "bbb3bc2eec234347"
+            ],
+            [
+                "85d2b4c14cd70575"
+            ]
+        ],
+        "icon": "font-awesome/fa-thermometer-half"
+    },
+    {
+        "id": "e8054348c8e765c3",
+        "type": "switch",
+        "z": "71eb007304ebc98b",
+        "name": "AC",
+        "property": "ac",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 530,
+        "y": 620,
+        "wires": [
+            [
+                "f15835efd6cb5a81"
+            ],
+            [
+                "d8e96dde610f1210"
+            ]
+        ]
+    },
+    {
+        "id": "f15835efd6cb5a81",
+        "type": "trigger",
+        "z": "71eb007304ebc98b",
+        "name": "triggerAcOn",
+        "op1": "AC on",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "0",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "0",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 710,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d8e96dde610f1210",
+        "type": "trigger",
+        "z": "71eb007304ebc98b",
+        "name": "triggerAcOff",
+        "op1": "AC off",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "0",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "0",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 710,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4d1826b1f0943b7c",
+        "type": "change",
+        "z": "71eb007304ebc98b",
+        "name": "resetTrigger",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 550,
+        "y": 580,
+        "wires": [
+            [
+                "f15835efd6cb5a81"
+            ]
+        ]
+    },
+    {
+        "id": "f6f742dc9ad4ea9a",
+        "type": "change",
+        "z": "71eb007304ebc98b",
+        "name": "resetTrigger",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 550,
+        "y": 660,
+        "wires": [
+            [
+                "d8e96dde610f1210"
+            ]
+        ]
+    },
+    {
+        "id": "70377ebc90dcb84f",
+        "type": "function",
+        "z": "71eb007304ebc98b",
+        "name": "heatingDelta",
+        "func": "var coolingDelta = msg.tBoxCooling - msg.tBoxCoolingDelta;\nmsg.payload = coolingDelta;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 460,
+        "wires": [
+            [
+                "54b669699a219269"
+            ]
+        ]
+    },
+    {
+        "id": "899a43ef9b97af43",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "freezer",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualCooler/controls/Mode"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "coolerOff",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 540,
+        "y": 500,
+        "wires": [],
+        "icon": "font-awesome/fa-close"
+    },
+    {
+        "id": "8d6fe1b62f153714",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "heater OFF",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualController/controls/Heater"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "off",
+        "payloadType": "msg",
+        "rbe": true,
+        "x": 550,
+        "y": 540,
+        "wires": [],
+        "icon": "font-awesome/fa-close"
+    },
+    {
+        "id": "85d2b4c14cd70575",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "fan OFF",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualController/controls/FAN"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "off",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 1060,
+        "y": 480,
+        "wires": [],
+        "icon": "font-awesome/fa-close"
+    },
+    {
+        "id": "bbb3bc2eec234347",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "fan ON",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualController/controls/FAN"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "on",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 1060,
+        "y": 440,
+        "wires": [],
+        "icon": "font-awesome/fa-spinner"
+    },
+    {
+        "id": "d87b9bda30e4cbfe",
+        "type": "switch",
+        "z": "71eb007304ebc98b",
+        "name": "doorOpen",
+        "property": "door",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 300,
+        "y": 920,
+        "wires": [
+            [
+                "3111258e4ec23ee2",
+                "f3781c597a94164b",
+                "a14422cf059acf3f",
+                "527007fed4ead95d",
+                "13f84f0687963dde",
+                "ab76c60462b371d7"
+            ],
+            [
+                "7d439bdb1ed71c83",
+                "3111258e4ec23ee2",
+                "3ce0270bb8fb6d25"
+            ]
+        ],
+        "icon": "font-awesome/fa-folder-open"
+    },
+    {
+        "id": "3111258e4ec23ee2",
+        "type": "switch",
+        "z": "71eb007304ebc98b",
+        "name": "door",
+        "property": "door",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 530,
+        "y": 920,
+        "wires": [
+            [
+                "5bb47445251e4682"
+            ],
+            [
+                "9ab590f5dc9a8dfe"
+            ]
+        ]
+    },
+    {
+        "id": "7d439bdb1ed71c83",
+        "type": "change",
+        "z": "71eb007304ebc98b",
+        "name": "resetTrigger",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 550,
+        "y": 960,
+        "wires": [
+            [
+                "9ab590f5dc9a8dfe"
+            ]
+        ]
+    },
+    {
+        "id": "5bb47445251e4682",
+        "type": "trigger",
+        "z": "71eb007304ebc98b",
+        "name": "triggerClosed",
+        "op1": "door closed",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "0",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "0",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 710,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9ab590f5dc9a8dfe",
+        "type": "trigger",
+        "z": "71eb007304ebc98b",
+        "name": "triggerOpen",
+        "op1": "door opened",
+        "op2": "0",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "0",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "0",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 710,
+        "y": 940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f3781c597a94164b",
+        "type": "change",
+        "z": "71eb007304ebc98b",
+        "name": "resetTrigger",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 550,
+        "y": 880,
+        "wires": [
+            [
+                "5bb47445251e4682"
+            ]
+        ]
+    },
+    {
+        "id": "e32b8aad87968054",
+        "type": "switch",
+        "z": "71eb007304ebc98b",
+        "name": "doorPresent",
+        "property": "doorPresent",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 110,
+        "y": 920,
+        "wires": [
+            [
+                "d87b9bda30e4cbfe"
+            ],
+            [
+                "3ce0270bb8fb6d25"
+            ]
+        ],
+        "icon": "font-awesome/fa-folder-open"
+    },
+    {
+        "id": "a14422cf059acf3f",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "fan OFF",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualController/controls/FAN"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "off",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 540,
+        "y": 720,
+        "wires": [],
+        "icon": "font-awesome/fa-close"
+    },
+    {
+        "id": "527007fed4ead95d",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "heater OFF",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualController/controls/Heater"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "off",
+        "payloadType": "msg",
+        "rbe": true,
+        "x": 550,
+        "y": 760,
+        "wires": [],
+        "icon": "font-awesome/fa-close"
+    },
+    {
+        "id": "13f84f0687963dde",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "freezer OFF",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualCooler/controls/Mode"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "coolerOff",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 550,
+        "y": 800,
+        "wires": [],
+        "icon": "font-awesome/fa-close"
+    },
+    {
+        "id": "19cd26934459304a",
+        "type": "switch",
+        "z": "71eb007304ebc98b",
+        "name": "tºC_Box",
+        "property": "tBox",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "tBoxHeating",
+                "vt": "msg"
+            },
+            {
+                "t": "gt",
+                "v": "heatingDelta",
+                "vt": "msg"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 380,
+        "y": 1080,
+        "wires": [
+            [
+                "230deb0f09221702",
+                "c26642d067d91d81",
+                "6ef66cf43ff82406"
+            ],
+            [
+                "b0915ec048224e16",
+                "9381cf6bddc14e94"
+            ]
+        ]
+    },
+    {
+        "id": "3ce0270bb8fb6d25",
+        "type": "switch",
+        "z": "71eb007304ebc98b",
+        "name": "heaterPresent",
+        "property": "heaterPresent",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 120,
+        "y": 1120,
+        "wires": [
+            [
+                "254fc9b04e5e2183"
+            ],
+            [
+                "9381cf6bddc14e94"
+            ]
+        ],
+        "icon": "font-awesome/fa-folder-open"
+    },
+    {
+        "id": "230deb0f09221702",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "heater ON",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualController/controls/Heater"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "on",
+        "payloadType": "msg",
+        "rbe": true,
+        "x": 710,
+        "y": 1020,
+        "wires": [],
+        "icon": "font-awesome/fa-fire"
+    },
+    {
+        "id": "c26642d067d91d81",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "freezer vent",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualCooler/controls/Mode"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "coolerFan",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 710,
+        "y": 1060,
+        "wires": [],
+        "icon": "font-awesome/fa-recycle"
+    },
+    {
+        "id": "6ef66cf43ff82406",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "fan OFF",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualController/controls/FAN"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "off",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 700,
+        "y": 1100,
+        "wires": [],
+        "icon": "font-awesome/fa-close"
+    },
+    {
+        "id": "b0915ec048224e16",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "heater OFF",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualController/controls/Heater"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "off",
+        "payloadType": "msg",
+        "rbe": true,
+        "x": 710,
+        "y": 1140,
+        "wires": [],
+        "icon": "font-awesome/fa-close"
+    },
+    {
+        "id": "b1eb1f3007b57969",
+        "type": "switch",
+        "z": "71eb007304ebc98b",
+        "name": "fanPresent",
+        "property": "fanPresent",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 110,
+        "y": 1260,
+        "wires": [
+            [
+                "08c6b4ba2416bdc0"
+            ],
+            [
+                "eb058e75bc856b64"
+            ]
+        ],
+        "icon": "font-awesome/fa-spinner"
+    },
+    {
+        "id": "254fc9b04e5e2183",
+        "type": "function",
+        "z": "71eb007304ebc98b",
+        "name": "calculationDelta",
+        "func": "var heatingDelta = msg.tBoxHeating + msg.tBoxHeatingDelta;\nmsg.heatingDelta = heatingDelta;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 180,
+        "y": 1080,
+        "wires": [
+            [
+                "19cd26934459304a"
+            ]
+        ]
+    },
+    {
+        "id": "08c6b4ba2416bdc0",
+        "type": "switch",
+        "z": "71eb007304ebc98b",
+        "name": "tºC_Box",
+        "property": "tBox",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "coolingDelta",
+                "vt": "msg"
+            },
+            {
+                "t": "btwn",
+                "v": "tBoxCooling",
+                "vt": "msg",
+                "v2": "overheatDelta",
+                "v2t": "msg"
+            },
+            {
+                "t": "gt",
+                "v": "tBoxOverheat",
+                "vt": "msg"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 380,
+        "y": 1200,
+        "wires": [
+            [
+                "0bee683d8ca67492"
+            ],
+            [
+                "2e09906c1bb201be"
+            ],
+            [
+                "36ce000855ea4090"
+            ]
+        ]
+    },
+    {
+        "id": "9381cf6bddc14e94",
+        "type": "function",
+        "z": "71eb007304ebc98b",
+        "name": "calculationDelta",
+        "func": "\nvar coolingDeltaCooler = msg.tBoxCooling - msg.tBoxCoolingDeltaCooler;\nvar coolingDeltaFan = msg.tBoxCooling - msg.tBoxCoolingDeltaFan;\nvar overheatDelta = msg.tBoxOverheat - msg.tBoxOverheatDelta; \nmsg.coolingDeltaCooler = coolingDeltaCooler;\nmsg.coolingDeltaFan = coolingDeltaFan;\nmsg.overheatDelta = overheatDelta;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 120,
+        "y": 1220,
+        "wires": [
+            [
+                "b1eb1f3007b57969"
+            ]
+        ]
+    },
+    {
+        "id": "0bee683d8ca67492",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "freezer OFF",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualCooler/controls/Mode"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "coolerOff",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 710,
+        "y": 1220,
+        "wires": [],
+        "icon": "font-awesome/fa-close"
+    },
+    {
+        "id": "2e09906c1bb201be",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "freezer ON",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualCooler/controls/Mode"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "coolerFreeze",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 710,
+        "y": 1260,
+        "wires": [],
+        "icon": "font-awesome/fa-snowflake-o"
+    },
+    {
+        "id": "36ce000855ea4090",
+        "type": "switch",
+        "z": "71eb007304ebc98b",
+        "name": "frz2Prsnt",
+        "property": "cooler2Present",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 380,
+        "y": 1260,
+        "wires": [
+            [
+                "2e09906c1bb201be"
+            ],
+            [
+                "2e351f1e5acb34fa"
+            ]
+        ],
+        "icon": "font-awesome/fa-snowflake-o"
+    },
+    {
+        "id": "8e40370c39a0ae84",
+        "type": "switch",
+        "z": "71eb007304ebc98b",
+        "name": "tºC_Street",
+        "property": "tStreet",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "switchingDelta",
+                "vt": "msg"
+            },
+            {
+                "t": "gt",
+                "v": "tStreetSwitching",
+                "vt": "msg"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 110,
+        "y": 1640,
+        "wires": [
+            [
+                "7b81184ca4aa6d88",
+                "119c4be6fc5e8815"
+            ],
+            [
+                "f08937b0d4d1a6b4",
+                "0a11190d581c1892"
+            ]
+        ]
+    },
+    {
+        "id": "eb058e75bc856b64",
+        "type": "function",
+        "z": "71eb007304ebc98b",
+        "name": "calculationDelta",
+        "func": "var switchingDelta = msg.tStreetSwitching - msg.tStreetSwitchingDelta;\nvar humidityDelta = msg.humidityThreshold - msg.humidityThresholdDelta;\nmsg.switchingDelta = switchingDelta;\nmsg.humidityDelta = humidityDelta;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 120,
+        "y": 1300,
+        "wires": [
+            [
+                "1e12e80a56de09b7"
+            ]
+        ]
+    },
+    {
+        "id": "f08937b0d4d1a6b4",
+        "type": "switch",
+        "z": "71eb007304ebc98b",
+        "name": "tºC_Box",
+        "property": "tBox",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "coolingDeltaCooler",
+                "vt": "msg"
+            },
+            {
+                "t": "lt",
+                "v": "coolingDeltaFan",
+                "vt": "msg"
+            },
+            {
+                "t": "btwn",
+                "v": "tBoxCooling",
+                "vt": "msg",
+                "v2": "overheatDelta",
+                "v2t": "msg"
+            },
+            {
+                "t": "gt",
+                "v": "tBoxOverheat",
+                "vt": "msg"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 380,
+        "y": 1780,
+        "wires": [
+            [
+                "1e6520eec08f089e"
+            ],
+            [
+                "6b9eadc46438daa7"
+            ],
+            [
+                "86fb11b6fa4bae89",
+                "6b9eadc46438daa7"
+            ],
+            [
+                "23be5afe5f15c523"
+            ]
+        ]
+    },
+    {
+        "id": "850a2cc30ef02afd",
+        "type": "switch",
+        "z": "71eb007304ebc98b",
+        "name": "tºC_Box",
+        "property": "tBox",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "tBoxOverheat",
+                "vt": "msg"
+            },
+            {
+                "t": "gt",
+                "v": "tBoxCooling",
+                "vt": "msg"
+            },
+            {
+                "t": "lt",
+                "v": "coolingDeltaCooler",
+                "vt": "msg"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 380,
+        "y": 1600,
+        "wires": [
+            [
+                "94488e28d72b40d1"
+            ],
+            [
+                "801108a0ba8942dd"
+            ],
+            [
+                "0998ee9e0f344c26"
+            ]
+        ]
+    },
+    {
+        "id": "0445296ef9056726",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "fan ON",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualController/controls/FAN"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "on",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 700,
+        "y": 1420,
+        "wires": [],
+        "icon": "font-awesome/fa-spinner"
+    },
+    {
+        "id": "94488e28d72b40d1",
+        "type": "switch",
+        "z": "71eb007304ebc98b",
+        "name": "frz2Prsnt",
+        "property": "cooler2Present",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 380,
+        "y": 1540,
+        "wires": [
+            [
+                "a031edefa27ef1e7"
+            ]
+        ],
+        "icon": "font-awesome/fa-snowflake-o"
+    },
+    {
+        "id": "801108a0ba8942dd",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "freezer ON",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualCooler/controls/Mode"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "coolerFreeze",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 710,
+        "y": 1580,
+        "wires": [],
+        "icon": "font-awesome/fa-snowflake-o"
+    },
+    {
+        "id": "6b9eadc46438daa7",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "fan OFF",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualController/controls/FAN"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "off",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 700,
+        "y": 1740,
+        "wires": [],
+        "icon": "font-awesome/fa-close"
+    },
+    {
+        "id": "1e6520eec08f089e",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "freezer OFF",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualCooler/controls/Mode"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "coolerOff",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 710,
+        "y": 1700,
+        "wires": [],
+        "icon": "font-awesome/fa-close"
+    },
+    {
+        "id": "86fb11b6fa4bae89",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "freezer ON",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualCooler/controls/Mode"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "coolerFreeze",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 710,
+        "y": 1780,
+        "wires": [],
+        "icon": "font-awesome/fa-snowflake-o"
+    },
+    {
+        "id": "c3e60e23c88b4d37",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "rotation ON",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualCooler/controls/Rotation"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "rotation",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 710,
+        "y": 1980,
+        "wires": [],
+        "icon": "font-awesome/fa-exchange"
+    },
+    {
+        "id": "83cb0dcb1bb809b0",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "rotation ON",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualCooler/controls/Rotation"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "rotation",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 710,
+        "y": 1540,
+        "wires": [],
+        "icon": "font-awesome/fa-exchange"
+    },
+    {
+        "id": "23be5afe5f15c523",
+        "type": "switch",
+        "z": "71eb007304ebc98b",
+        "name": "frz2Prsnt",
+        "property": "cooler2Present",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 380,
+        "y": 1840,
+        "wires": [
+            [
+                "d86d51fe73b48ee6",
+                "6fbc27363f35acfe"
+            ],
+            [
+                "e3e802f739b1bc3c",
+                "3640c002a45ff9e5",
+                "329089d9c860f070"
+            ]
+        ],
+        "icon": "font-awesome/fa-snowflake-o"
+    },
+    {
+        "id": "e3e802f739b1bc3c",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "freezer ON",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualCooler/controls/Mode"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "coolerFreeze",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 710,
+        "y": 1940,
+        "wires": [],
+        "icon": "font-awesome/fa-snowflake-o"
+    },
+    {
+        "id": "3640c002a45ff9e5",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "fan OFF",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualController/controls/FAN"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "off",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 700,
+        "y": 1900,
+        "wires": [],
+        "icon": "font-awesome/fa-close"
+    },
+    {
+        "id": "6fbc27363f35acfe",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "fan ON",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualController/controls/FAN"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "on",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 700,
+        "y": 1860,
+        "wires": [],
+        "icon": "font-awesome/fa-spinner"
+    },
+    {
+        "id": "d86d51fe73b48ee6",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "freezer OFF",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualCooler/controls/Mode"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "coolerOff",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 710,
+        "y": 1820,
+        "wires": [],
+        "icon": "font-awesome/fa-close"
+    },
+    {
+        "id": "833e369c9c8bc6d3",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "rotation ON",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualCooler/controls/Rotation"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "on",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 710,
+        "y": 1300,
+        "wires": [],
+        "icon": "font-awesome/fa-exchange"
+    },
+    {
+        "id": "a031edefa27ef1e7",
+        "type": "wirenboard-get",
+        "z": "71eb007304ebc98b",
+        "name": "lastRot",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualCooler/controls/Last_rotation_unix"
+        ],
+        "x": 540,
+        "y": 1520,
+        "wires": [
+            [
+                "efdf524f7613af93"
+            ]
+        ]
+    },
+    {
+        "id": "329089d9c860f070",
+        "type": "wirenboard-get",
+        "z": "71eb007304ebc98b",
+        "name": "lastRot",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualCooler/controls/Last_rotation_unix"
+        ],
+        "x": 380,
+        "y": 1880,
+        "wires": [
+            [
+                "c92217e7f75ffdf5"
+            ]
+        ]
+    },
+    {
+        "id": "efdf524f7613af93",
+        "type": "function",
+        "z": "71eb007304ebc98b",
+        "name": "checkRot",
+        "func": "var lastRotate = msg.payload;\nvar date = Math.floor(new Date().getTime() / 1000);\nif (date - lastRotate > 3600) {\n    msg.rotation = 1;\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 1560,
+        "wires": [
+            [
+                "83cb0dcb1bb809b0"
+            ]
+        ]
+    },
+    {
+        "id": "c92217e7f75ffdf5",
+        "type": "function",
+        "z": "71eb007304ebc98b",
+        "name": "checkRot",
+        "func": "var lastRotate = msg.payload;\nvar date = Math.floor(new Date().getTime() / 1000);\nif (date - lastRotate > 3600) {\n    msg.rotation = 1;\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 1920,
+        "wires": [
+            [
+                "c3e60e23c88b4d37"
+            ]
+        ]
+    },
+    {
+        "id": "2e351f1e5acb34fa",
+        "type": "function",
+        "z": "71eb007304ebc98b",
+        "name": "checkRot",
+        "func": "var lastRotate = msg.payload;\nvar date = Math.floor(new Date().getTime() / 1000);\nif (date - lastRotate > 3600) {\n    msg.rotation = 1;\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 1320,
+        "wires": [
+            [
+                "833e369c9c8bc6d3"
+            ]
+        ]
+    },
+    {
+        "id": "7b81184ca4aa6d88",
+        "type": "switch",
+        "z": "71eb007304ebc98b",
+        "name": "W кг/м3",
+        "property": "humidity",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "humidityDelta",
+                "vt": "msg"
+            },
+            {
+                "t": "gt",
+                "v": "humidityThreshold",
+                "vt": "msg"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 120,
+        "y": 1600,
+        "wires": [
+            [
+                "8da8b71b24deee61"
+            ],
+            [
+                "850a2cc30ef02afd",
+                "2652ca7857d8f126"
+            ]
+        ]
+    },
+    {
+        "id": "8da8b71b24deee61",
+        "type": "switch",
+        "z": "71eb007304ebc98b",
+        "name": "tºC_Box",
+        "property": "tBox",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "coolingDeltaFan",
+                "vt": "msg"
+            },
+            {
+                "t": "btwn",
+                "v": "tBoxCooling",
+                "vt": "msg",
+                "v2": "overheatDelta",
+                "v2t": "msg"
+            },
+            {
+                "t": "lt",
+                "v": "overheatDelta",
+                "vt": "msg"
+            },
+            {
+                "t": "gt",
+                "v": "tBoxOverheat",
+                "vt": "msg"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 380,
+        "y": 1460,
+        "wires": [
+            [
+                "2c5ced3d88f9dc01"
+            ],
+            [
+                "0445296ef9056726"
+            ],
+            [
+                "def2c4a57758dfb6"
+            ],
+            [
+                "94488e28d72b40d1",
+                "f38d78b69be7163f"
+            ]
+        ]
+    },
+    {
+        "id": "2c5ced3d88f9dc01",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "fan OFF",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualController/controls/FAN"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "off",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 700,
+        "y": 1380,
+        "wires": [],
+        "icon": "font-awesome/fa-close"
+    },
+    {
+        "id": "f38d78b69be7163f",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "freezer ON",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualCooler/controls/Mode"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "coolerFreeze",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 710,
+        "y": 1500,
+        "wires": [],
+        "icon": "font-awesome/fa-snowflake-o"
+    },
+    {
+        "id": "0998ee9e0f344c26",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "freezer OFF",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualCooler/controls/Mode"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "coolerOff",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 710,
+        "y": 1620,
+        "wires": [],
+        "icon": "font-awesome/fa-close"
+    },
+    {
+        "id": "2652ca7857d8f126",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "fan OFF",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualController/controls/FAN"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "off",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 380,
+        "y": 1640,
+        "wires": [],
+        "icon": "font-awesome/fa-close"
+    },
+    {
+        "id": "ab76c60462b371d7",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "Lightning ON",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualController/controls/Lightning"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "on",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 550,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "1e12e80a56de09b7",
+        "type": "switch",
+        "z": "71eb007304ebc98b",
+        "name": "checkBatTest",
+        "property": "shtylStatus",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Тест емкости батарей",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 110,
+        "y": 1400,
+        "wires": [
+            [
+                "08c6b4ba2416bdc0"
+            ],
+            [
+                "8e40370c39a0ae84",
+                "39559c2e7aab3674",
+                "2d8425aa53bc746c"
+            ]
+        ]
+    },
+    {
+        "id": "def2c4a57758dfb6",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "freezer OFF",
+        "server": "b8b9a37f04c1de59",
+        "channel": [
+            "/devices/virtualCooler/controls/Mode"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "coolerOff",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 710,
+        "y": 1460,
+        "wires": [],
+        "icon": "font-awesome/fa-close"
+    },
+    {
+        "id": "119c4be6fc5e8815",
+        "type": "debug",
+        "z": "71eb007304ebc98b",
+        "name": "tStreet",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "tStreet",
+        "targetType": "msg",
+        "statusVal": "tStreet",
+        "statusType": "auto",
+        "x": 370,
+        "y": 1680,
+        "wires": []
+    },
+    {
+        "id": "0a11190d581c1892",
+        "type": "debug",
+        "z": "71eb007304ebc98b",
+        "name": "tStreet",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "tStreet",
+        "targetType": "msg",
+        "statusVal": "tStreet",
+        "statusType": "auto",
+        "x": 90,
+        "y": 1680,
+        "wires": []
+    },
+    {
+        "id": "39559c2e7aab3674",
+        "type": "debug",
+        "z": "71eb007304ebc98b",
+        "name": "shtylStatus",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "shtylStatus",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 390,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "2d8425aa53bc746c",
+        "type": "debug",
+        "z": "71eb007304ebc98b",
+        "name": "tSwitching",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "tStreetSwitching",
+        "targetType": "msg",
+        "statusVal": "tStreetSwitching",
+        "statusType": "auto",
+        "x": 110,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "6aa582cbd67a6794",
+        "type": "debug",
+        "z": "71eb007304ebc98b",
+        "name": "ac",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "ac",
+        "targetType": "msg",
+        "statusVal": "ac",
+        "statusType": "auto",
+        "x": 90,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "b498a97a60319266",
+        "type": "debug",
+        "z": "71eb007304ebc98b",
+        "name": "fire",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "fire",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 90,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "b8b9a37f04c1de59",
+        "type": "wirenboard-server",
+        "name": "wirenBoard",
+        "host": "localhost",
+        "mqtt_port": "1883",
+        "mqtt_username": "",
+        "mqtt_password": ""
+    }
+]
