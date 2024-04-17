@@ -47,9 +47,9 @@ function checkVoltage(voltage) {
 }
 
 function checkInputs() {
-    var input1IsNormal = input1Topic && (input2Topic && ATS1Topic ? dev[input1Topic] && dev[ATS1Topic] : true);
-    var input2IsNormal = input2Topic && ATS2Topic && dev[input2Topic] && dev[ATS2Topic];
-    var input3IsNormal = input3Topic && ATS3Topic && dev[input3Topic] && dev[ATS3Topic];
+    var input1IsNormal = input1Topic && (input2Topic ? ATS1Topic : true) && dev[input1Topic] && (input2Topic ? dev[ATS1Topic] : true)
+    var input2IsNormal = input2Topic && ATS2Topic && dev[input2Topic] && dev[ATS2Topic]
+    var input3IsNormal = input3Topic && ATS3Topic && dev[input3Topic] && dev[ATS3Topic]
 
     return (input1IsNormal || input2IsNormal || input3IsNormal) && checkVoltage(dev[voltageTopic])
 }
