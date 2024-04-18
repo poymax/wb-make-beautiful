@@ -1,4 +1,7 @@
-var PATH_TO_CONFIG = '/etc/wb-rules/virtualACdetector/configV2.conf'
+var DEVICE_ID = 'virtualACdetectorV2' // TODO: change after tests
+var DEVICE_TITLE = 'Virtual AC detector V2' // TODO: change after tests
+var PATH_TO_CONFIG = '/etc/wb-rules/virtualACdetector/configV2.conf' // TODO: change after tests
+
 var config = readConfig(PATH_TO_CONFIG)
 
 var voltageMin = config['voltageMin']
@@ -12,23 +15,86 @@ var ATS1Topic = config['ATS1']
 var ATS2Topic = config['ATS2']
 var ATS3Topic = config['ATS3']
 
-var topicMap = {
-    'virtualACdetectorV2/Generator': generatorTopic,
-    'virtualACdetectorV2/Voltage': voltageTopic,
-    'virtualACdetectorV2/Input_1': input1Topic,
-    'virtualACdetectorV2/ATS_1': ATS1Topic,
-    'virtualACdetectorV2/Input_2': input2Topic,
-    'virtualACdetectorV2/ATS_2': ATS2Topic,
-    'virtualACdetectorV2/Input_3': input3Topic,
-    'virtualACdetectorV2/ATS_3': ATS3Topic,
+var virtualDevice = defineVirtualDevice(DEVICE_ID, {
+    title: DEVICE_TITLE,
+    cells: {
+        AC_alarm: {
+            type: 'alarm',
+            value: false,
+            readonly: false,
+            order: 1,
+        },
+        Voltage: {
+            type: 'voltage',
+            value: 0,
+            readonly: true,
+            order: 2,
+        },
+        Generator: {
+            type: 'switch',
+            value: false,
+            readonly: true,
+            order: 3,
+        },
+        Input_1: {
+            type: 'switch',
+            value: false,
+            readonly: true,
+            order: 4,
+        },
+        Input_2: {
+            type: 'switch',
+            value: false,
+            readonly: true,
+            order: 5,
+        },
+        Input_3: {
+            type: 'switch',
+            value: false,
+            readonly: true,
+            order: 6,
+        },
+        ATS_1: {
+            type: 'switch',
+            value: false,
+            readonly: true,
+            order: 7,
+        },
+        ATS_2: {
+            type: 'switch',
+            value: false,
+            readonly: true,
+            order: 8,
+        },
+        ATS_3: {
+            type: 'switch',
+            value: false,
+            readonly: true,
+            order: 9,
+        },
+    },
+})
+
+var controlMap = {
+    'Voltage': voltageTopic,
+    'Generator': generatorTopic,
+    'Input_1': input1Topic,
+    'Input_2': input2Topic,
+    'Input_3': input3Topic,
+    'ATS_1': ATS1Topic,
+    'ATS_2': ATS2Topic,
+    'ATS_3': ATS3Topic,
 }
 
 var observedTopics = []
-for (var virtualTopic in topicMap) {
-    var realTopic = topicMap[virtualTopic]
+for (var virtualControl in controlMap) {
+    var realTopic = controlMap[virtualControl]
+
     if (realTopic) {
-        dev[virtualTopic] = dev[realTopic]
+        dev[DEVICE_ID][virtualControl] = dev[realTopic]
         observedTopics.push(realTopic)
+    } else {
+        virtualDevice.removeControl(virtualControl)
     }
 }
 
@@ -46,22 +112,22 @@ function checkVoltage(voltage) {
     return voltage >= voltageMin && voltage <= voltageMax
 }
 
-function checkInputs() {
-    var input1IsNormal = input1Topic && (input2Topic ? ATS1Topic : true) && dev[input1Topic] && (input2Topic ? dev[ATS1Topic] : true)
-    var input2IsNormal = input2Topic && ATS2Topic && dev[input2Topic] && dev[ATS2Topic]
-    var input3IsNormal = input3Topic && ATS3Topic && dev[input3Topic] && dev[ATS3Topic]
+function checkPower() {
+    var voltageIsOk = checkVoltage(dev[voltageTopic])
+    var generatorDisabled = !dev[generatorTopic]
+    var anyInputIsOk = input1Topic && dev[input1Topic] || input2Topic && dev[input2Topic] || input3Topic && dev[input3Topic]
 
-    return (input1IsNormal || input2IsNormal || input3IsNormal) && checkVoltage(dev[voltageTopic])
+    return voltageIsOk && generatorDisabled && anyInputIsOk
 }
 
 function setAlarm() {
-    dev['virtualACdetectorV2/AC_alarm'] = !checkInputs()
+    dev[DEVICE_ID]['AC_alarm'] = !checkPower()
 }
 
 defineRule({
     whenChanged: observedTopics,
     then: function(newValue, devName, cellName) {
-        dev[getKeyByValue(topicMap, devName + '/' + cellName)] = newValue
+        dev[DEVICE_ID][getKeyByValue(controlMap, devName + '/' + cellName)] = newValue
         setAlarm()
     }
 })
