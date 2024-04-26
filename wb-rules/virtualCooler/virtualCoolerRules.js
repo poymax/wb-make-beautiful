@@ -1,3 +1,4 @@
+var SENDING_INTERVAL_THRESHOLD = 10000
 var PATH_TO_CONFIG = '/etc/wb-rules/virtualCooler/config.conf'
 
 var config = readConfig(PATH_TO_CONFIG)
@@ -116,6 +117,10 @@ function doRotation() {
     log.info('virtualCooler:::Cooler has been rotated. Now cooler 1: {}, cooler 2: {}', cooler1['name'], cooler2['name'])
 }
 
+function sendIntervalWarning() {
+    log.warning('virtualCooler:::The command sending interval must be {} ms or greater. Interval sending inactive!', SENDING_INTERVAL_THRESHOLD)
+}
+
 defineRule('cooler1Mode', {
     whenChanged: 'virtualCooler/Mode',
     then: function(newValue) {
@@ -179,9 +184,17 @@ if (dev['virtualCooler/Cooler2_present']) {
 }
 
 if (sendingInterval1 !== 0) {
-    setInterval(function() { sendCommand(cooler1, dev['virtualCooler/Mode']) }, sendingInterval1)
+    if (sendingInterval1 < SENDING_INTERVAL_THRESHOLD) {
+        sendIntervalWarning()
+    } else {
+        setInterval(function() { sendCommand(cooler1, dev['virtualCooler/Mode']) }, sendingInterval1)
+    }
 }
 
 if (sendingInterval2 !== 0) {
-    setInterval(function() { sendCommand(cooler2, dev['virtualCooler/Cooler2_mode']) }, sendingInterval2)
+    if (sendingInterval2 < SENDING_INTERVAL_THRESHOLD) {
+        sendIntervalWarning()
+    } else {
+        setInterval(function() { sendCommand(cooler2, dev['virtualCooler/Cooler2_mode']) }, sendingInterval2)
+    }
 }
