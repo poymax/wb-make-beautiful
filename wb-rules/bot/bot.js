@@ -24,11 +24,15 @@ if (doorAlarmTopic) {
   });
   runRule(doorAlarmRule)
 }
-if (acAlarmTopic) {
+if (city) {
   var acAlarmRule = defineRule("AC", {
-   whenChanged: acAlarmTopic,
+   whenChanged: city,
     then: function () {
-      message = dev[acAlarmTopic] ? "Электричество\\ кончилось!" : "Питание\\ в\\ норме!";
+      if (dev[city] == true & dev[acAlarmTopic] == true) {
+        message = "Отклонение\\ напряжения\\ городской\\ сети";
+      } else if (dev[city] == false) {
+        message = "Электричество\\ кончилось!";
+      } else message = "Питание\\ в\\ норме!";
       checkAlarm()
     }
   });
