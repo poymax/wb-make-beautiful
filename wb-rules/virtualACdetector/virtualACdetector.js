@@ -118,9 +118,13 @@ function checkVoltage(voltage) {
 }
 
 function checkPower() {
-    var voltageIsOk = checkVoltage(dev[voltageTopic])
-    var generatorDisabled = !dev[generatorTopic]
-    var anyInputIsOk = input1Topic && dev[input1Topic] || input2Topic && dev[input2Topic] || input3Topic && dev[input3Topic]
+    var voltageIsOk = checkVoltage(dev[DEVICE_ID]['Voltage'])
+    var generatorDisabled = !dev[DEVICE_ID]['Generator']
+
+    var input1IsOk = virtualDevice.isControlExists('Input_1') && dev[DEVICE_ID]['Input_1']
+    var input2IsOk = virtualDevice.isControlExists('Input_2') && dev[DEVICE_ID]['Input_2']
+    var input3IsOk = virtualDevice.isControlExists('Input_3') && dev[DEVICE_ID]['Input_3']
+    var anyInputIsOk = input1IsOk || input2IsOk || input3IsOk
 
     return voltageIsOk && generatorDisabled && anyInputIsOk
 }
