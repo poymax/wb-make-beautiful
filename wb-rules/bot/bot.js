@@ -5,7 +5,7 @@ var message;
 var token = config['token'];
 var chatId = config['chatId'];
 var messageThreadId = config['messageThreadId'];
-var fireAlarmTopic = 'virtualFireDetector/fire';
+var fireAlarmTopic = 'virtualFireDetector/Fire';
 var doorAlarmTopic = 'virtualDoor/Door';
 var acAlarmTopic = 'virtualACdetector/AC_alarm';
 var city = config['city'];
