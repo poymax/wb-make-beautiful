@@ -8,8 +8,10 @@ var messageThreadId = config['messageThreadId'];
 var fireAlarmTopic = 'virtualFireDetector/Fire';
 var doorAlarmTopic = 'virtualDoor/Door';
 var acAlarmTopic = 'virtualACdetector/AC_alarm';
-var city = config['city'];
+var city_1 = config['city_1'];
+var city_2 = config['city_2'];
 var generator = config['generator'];
+var voltage = 'virtualACdetector/Voltage';
 var tBoxLowTopic = 'alarm/low_temp';
 var tBoxHighTopic = 'alarm/high_temp';
 
@@ -28,15 +30,19 @@ if (doorAlarmTopic) {
   });
   runRule(doorAlarmRule)
 }
-if (city) {
+if (acAlarmTopic) {
   var acAlarmRule = defineRule("AC", {
    whenChanged: acAlarmTopic,
     then: function () {
-      if (dev[city] == true & dev[acAlarmTopic] == true) {
-        message = "Отклонение\\ напряжения\\ городской\\ сети";
-      } else if (dev[city] == false) {
-        message = "Электричество\\ кончилось!";
-      } else message = "Питание\\ в\\ норме!";
+      if (dev[city_1] == true || dev[city_2] == true & dev[acAlarmTopic] == true) {
+        message = "Отклонение\\ напряжения\\ городской\\ сети:\\ " + dev[voltage] + "\\ В";
+      } else if (dev[city_1] == true & dev[acAlarmTopic] == false) {
+        message = "Ввод\\ 1\\ электропитания\\ активирован!";
+      } else if (dev[city_2] == true & dev[acAlarmTopic] == false) {
+        message = "Ввод\\ 2\\ электропитания\\ активирован!";
+      } else if (dev[generator] == true & dev[acAlarmTopic] == false) {
+        message = "Питание\\ с\\ генератора\\ активировано!";
+      } else message = "Электричество\\ кончилось!";
       checkAlarm()
     }
   });
