@@ -7,14 +7,6 @@ var config = readConfig(PATH_TO_CONFIG)
 var voltageMin = config['voltageMin']
 var voltageMax = config['voltageMax']
 var voltageDelta = config['voltageDelta']
-var voltageTopic = config['voltage']
-var generatorTopic = config['generator']
-var input1Topic = config['input1']
-var input2Topic = config['input2']
-var input3Topic = config['input3']
-var ATS1Topic = config['ATS1']
-var ATS2Topic = config['ATS2']
-var ATS3Topic = config['ATS3']
 
 var virtualDevice = defineVirtualDevice(DEVICE_ID, {
     title: DEVICE_TITLE,
@@ -77,14 +69,24 @@ var virtualDevice = defineVirtualDevice(DEVICE_ID, {
 })
 
 var controlMap = {
-    'Voltage': voltageTopic,
-    'Generator': generatorTopic,
-    'Input_1': input1Topic,
-    'Input_2': input2Topic,
-    'Input_3': input3Topic,
-    'ATS_1': ATS1Topic,
-    'ATS_2': ATS2Topic,
-    'ATS_3': ATS3Topic,
+    'Voltage': config['voltage'],
+    'Generator': config['generator'][0],
+    'Input_1': config['input1'][0],
+    'Input_2': config['input2'][0],
+    'Input_3': config['input3'][0],
+    'ATS_1': config['ATS1'][0],
+    'ATS_2': config['ATS2'][0],
+    'ATS_3': config['ATS3'][0],
+}
+
+var invertMap = {
+    'Generator': config['generator'][1],
+    'Input_1': config['input1'][1],
+    'Input_2': config['input2'][1],
+    'Input_3': config['input3'][1],
+    'ATS_1': config['ATS1'][1],
+    'ATS_2': config['ATS2'][1],
+    'ATS_3': config['ATS3'][1],
 }
 
 var observedTopics = []
@@ -92,7 +94,7 @@ for (var virtualControl in controlMap) {
     var realTopic = controlMap[virtualControl]
 
     if (realTopic) {
-        dev[DEVICE_ID][virtualControl] = dev[realTopic]
+        dev[DEVICE_ID][virtualControl] = invertMap[virtualControl] ? !dev[realTopic] : dev[realTopic]
         observedTopics.push(realTopic)
     } else {
         virtualDevice.removeControl(virtualControl)
@@ -118,9 +120,13 @@ function checkVoltage(voltage) {
 }
 
 function checkPower() {
-    var voltageIsOk = checkVoltage(dev[voltageTopic])
-    var generatorDisabled = !dev[generatorTopic]
-    var anyInputIsOk = input1Topic && dev[input1Topic] || input2Topic && dev[input2Topic] || input3Topic && dev[input3Topic]
+    var voltageIsOk = checkVoltage(dev[DEVICE_ID]['Voltage'])
+    var generatorDisabled = !dev[DEVICE_ID]['Generator']
+
+    var input1IsOk = virtualDevice.isControlExists('Input_1') && dev[DEVICE_ID]['Input_1']
+    var input2IsOk = virtualDevice.isControlExists('Input_2') && dev[DEVICE_ID]['Input_2']
+    var input3IsOk = virtualDevice.isControlExists('Input_3') && dev[DEVICE_ID]['Input_3']
+    var anyInputIsOk = input1IsOk || input2IsOk || input3IsOk
 
     return voltageIsOk && generatorDisabled && anyInputIsOk
 }
@@ -132,7 +138,8 @@ function setAlarm() {
 defineRule({
     whenChanged: observedTopics,
     then: function(newValue, devName, cellName) {
-        dev[DEVICE_ID][getKeyByValue(controlMap, devName + '/' + cellName)] = newValue
+        var virtualControl = getKeyByValue(controlMap, devName + '/' + cellName)
+        dev[DEVICE_ID][virtualControl] = invertMap[virtualControl] ? !newValue : newValue
         setAlarm()
     }
 })

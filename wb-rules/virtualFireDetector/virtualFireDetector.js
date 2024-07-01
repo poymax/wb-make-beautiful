@@ -1,67 +1,97 @@
+var DEVICE_ID = 'virtualFireDetector'
+var DEVICE_TITLE = 'Virtual fire detector'
 var PATH_TO_CONFIG = '/etc/wb-rules/virtualFireDetector/config.conf'
 
 var config = readConfig(PATH_TO_CONFIG)
 
-var detector1RealTopic = config['fireDetector1']
-var detector2RealTopic = config['fireDetector2']
-var invertDetector1 = config['invertDetector1']
-var invertDetector2 = config['invertDetector2']
-
-var fireAlarmTopic = 'virtualFireDetector/Fire'
-var detector1VirtualTopic = 'virtualFireDetector/Detector_1'
-var detector2VirtualTopic = 'virtualFireDetector/Detector_2'
-
-defineVirtualDevice('virtualFireDetector', {
-    title: 'Virtual fire detector',
+var virtualDevice = defineVirtualDevice(DEVICE_ID, {
+    title: DEVICE_TITLE,
     cells: {
-        Fire: {
+        Fire_alarm: {
             type: 'alarm',
             value: false,
             readonly: false,
-            forceDefault: true,
             order: 1,
         },
         Detector_1: {
             type: 'alarm',
             value: false,
             readonly: false,
-            forceDefault: true,
             order: 2,
         },
         Detector_2: {
             type: 'alarm',
             value: false,
             readonly: false,
-            forceDefault: true,
             order: 3,
         },
+    },
+})
+
+var controlMap = {
+    'Detector_1': config['detector1'][0],
+    'Detector_2': config['detector2'][0],
+}
+
+var invertMap = {
+    'Detector_1': config['detector1'][1],
+    'Detector_2': config['detector2'][1],
+}
+
+var observedTopics = []
+for (var virtualControl in controlMap) {
+    var realTopic = controlMap[virtualControl]
+
+    if (realTopic) {
+        dev[DEVICE_ID][virtualControl] = invertMap[virtualControl] ? !dev[realTopic] : dev[realTopic]
+        observedTopics.push(realTopic)
+    } else {
+        virtualDevice.removeControl(virtualControl)
+    }
+}
+
+function getKeyByValue(object, value) {
+    for (var key in object) {
+        if (object.hasOwnProperty(key) && object[key] === value) {
+            return key
+        }
+    }
+
+    return null
+}
+
+function checkFireAlarm() {
+    var detector1Exists = virtualDevice.isControlExists('Detector_1');
+    var detector2Exists = virtualDevice.isControlExists('Detector_2');
+
+    if (!detector1Exists && !detector2Exists) {
+        return false;
+    }
+
+    if (detector1Exists && detector2Exists) {
+        return dev[DEVICE_ID]['Detector_1'] && dev[DEVICE_ID]['Detector_2'];
+    }
+
+    if (detector1Exists) {
+        return dev[DEVICE_ID]['Detector_1'];
+    }
+
+    if (detector2Exists) {
+        return dev[DEVICE_ID]['Detector_2'];
+    }
+}
+
+function setAlarm() {
+    dev[DEVICE_ID]['Fire_alarm'] = checkFireAlarm()
+}
+
+defineRule({
+    whenChanged: observedTopics,
+    then: function(newValue, devName, cellName) {
+        var virtualControl = getKeyByValue(controlMap, devName + '/' + cellName)
+        dev[DEVICE_ID][virtualControl] = invertMap[virtualControl] ? !newValue : newValue
+        setAlarm()
     }
 })
 
-function checkFireAlarm() {
-    dev[fireAlarmTopic] = dev[detector1VirtualTopic] && dev[detector2VirtualTopic]
-}
-
-if (detector1RealTopic) {
-    var virtualDetector1Rule = defineRule('virtualDetector1', {
-        whenChanged: detector1RealTopic,
-        then: function() {
-            dev[detector1VirtualTopic] = invertDetector1 ? !dev[detector1RealTopic] : dev[detector1RealTopic]
-            checkFireAlarm()
-        }
-    })
-    runRule(virtualDetector1Rule)
-}
-
-if (detector2RealTopic) {
-    var virtualDetector2Rule = defineRule('virtualDetector2', {
-        whenChanged: detector2RealTopic,
-        then: function() {
-            dev[detector2VirtualTopic] = invertDetector2 ? !dev[detector2RealTopic] : dev[detector2RealTopic]
-            checkFireAlarm()
-        }
-    })
-    runRule(virtualDetector2Rule)
-}
-
-checkFireAlarm()
+setAlarm()
