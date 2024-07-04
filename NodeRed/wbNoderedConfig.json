@@ -701,17 +701,15 @@
         "repair": false,
         "outputs": 2,
         "x": 100,
-        "y": 360,
+        "y": 340,
         "wires": [
             [
-                "442285720a831f61",
-                "3312e7ed5773fd8d",
                 "896c6e813be22a6d",
-                "7d3633e27bbcc885"
+                "7d3633e27bbcc885",
+                "8f5eadf2af77d9f0"
             ],
             [
-                "871cb4155e305925",
-                "b498a97a60319266"
+                "871cb4155e305925"
             ]
         ],
         "icon": "font-awesome/fa-fire-extinguisher"
@@ -739,14 +737,13 @@
         "repair": false,
         "outputs": 2,
         "x": 100,
-        "y": 500,
+        "y": 480,
         "wires": [
             [
                 "ab6e272c5d29e8cb"
             ],
             [
-                "e32b8aad87968054",
-                "6aa582cbd67a6794"
+                "e32b8aad87968054"
             ]
         ],
         "icon": "font-awesome/fa-flash"
@@ -769,7 +766,7 @@
         "repair": false,
         "outputs": 1,
         "x": 490,
-        "y": 520,
+        "y": 500,
         "wires": [
             [
                 "70377ebc90dcb84f"
@@ -800,7 +797,7 @@
         "repair": false,
         "outputs": 2,
         "x": 680,
-        "y": 560,
+        "y": 540,
         "wires": [
             [
                 "bbb3bc2eec234347",
@@ -825,7 +822,7 @@
         "finalize": "",
         "libs": [],
         "x": 690,
-        "y": 520,
+        "y": 500,
         "wires": [
             [
                 "54b669699a219269"
@@ -854,14 +851,11 @@
         "checkall": "false",
         "repair": false,
         "outputs": 2,
-        "x": 380,
-        "y": 860,
+        "x": 140,
+        "y": 800,
         "wires": [
             [
-                "a14422cf059acf3f",
-                "527007fed4ead95d",
-                "13f84f0687963dde",
-                "ab76c60462b371d7"
+                "dd5f3ccb544200ff"
             ],
             [
                 "3ce0270bb8fb6d25"
@@ -892,7 +886,7 @@
         "repair": false,
         "outputs": 2,
         "x": 110,
-        "y": 860,
+        "y": 840,
         "wires": [
             [
                 "d87b9bda30e4cbfe"
@@ -926,7 +920,7 @@
         "repair": false,
         "outputs": 2,
         "x": 560,
-        "y": 980,
+        "y": 1040,
         "wires": [
             [
                 "230deb0f09221702",
@@ -961,7 +955,7 @@
         "repair": false,
         "outputs": 2,
         "x": 120,
-        "y": 1000,
+        "y": 1060,
         "wires": [
             [
                 "254fc9b04e5e2183"
@@ -995,7 +989,7 @@
         "repair": false,
         "outputs": 2,
         "x": 110,
-        "y": 1140,
+        "y": 1200,
         "wires": [
             [
                 "08c6b4ba2416bdc0"
@@ -1018,7 +1012,7 @@
         "finalize": "",
         "libs": [],
         "x": 400,
-        "y": 980,
+        "y": 1040,
         "wires": [
             [
                 "19cd26934459304a"
@@ -1055,7 +1049,7 @@
         "repair": false,
         "outputs": 3,
         "x": 380,
-        "y": 1100,
+        "y": 1160,
         "wires": [
             [
                 "bc7a5d970b4a56df"
@@ -1080,7 +1074,7 @@
         "finalize": "",
         "libs": [],
         "x": 120,
-        "y": 1100,
+        "y": 1160,
         "wires": [
             [
                 "b1eb1f3007b57969"
@@ -1110,7 +1104,7 @@
         "repair": false,
         "outputs": 2,
         "x": 380,
-        "y": 1140,
+        "y": 1200,
         "wires": [
             [
                 "0da4b064662ca694"
@@ -1151,7 +1145,7 @@
         "repair": false,
         "outputs": 3,
         "x": 110,
-        "y": 1700,
+        "y": 1760,
         "wires": [
             [
                 "7b81184ca4aa6d88"
@@ -1176,7 +1170,7 @@
         "finalize": "",
         "libs": [],
         "x": 120,
-        "y": 1180,
+        "y": 1240,
         "wires": [
             [
                 "1e12e80a56de09b7"
@@ -1218,7 +1212,7 @@
         "repair": false,
         "outputs": 4,
         "x": 380,
-        "y": 1780,
+        "y": 1840,
         "wires": [
             [
                 "340d503b6532ba8d"
@@ -1263,7 +1257,7 @@
         "repair": false,
         "outputs": 3,
         "x": 380,
-        "y": 1620,
+        "y": 1680,
         "wires": [
             [
                 "94488e28d72b40d1"
@@ -1299,7 +1293,7 @@
         "repair": false,
         "outputs": 2,
         "x": 380,
-        "y": 1560,
+        "y": 1620,
         "wires": [
             [
                 "0594dd72986dadb0"
@@ -1333,7 +1327,7 @@
         "repair": false,
         "outputs": 2,
         "x": 380,
-        "y": 1840,
+        "y": 1900,
         "wires": [
             [
                 "6fbc27363f35acfe",
@@ -1359,7 +1353,7 @@
         "finalize": "",
         "libs": [],
         "x": 560,
-        "y": 1520,
+        "y": 1580,
         "wires": [
             [
                 "3929aa1bcb9cdcc4"
@@ -1379,7 +1373,7 @@
         "finalize": "",
         "libs": [],
         "x": 380,
-        "y": 1920,
+        "y": 1980,
         "wires": [
             [
                 "61807e92dc33fd5e"
@@ -1399,7 +1393,7 @@
         "finalize": "",
         "libs": [],
         "x": 380,
-        "y": 1220,
+        "y": 1280,
         "wires": [
             [
                 "9a4339194a686a80"
@@ -1429,7 +1423,7 @@
         "repair": false,
         "outputs": 2,
         "x": 100,
-        "y": 1660,
+        "y": 1720,
         "wires": [
             [
                 "8da8b71b24deee61"
@@ -1475,7 +1469,7 @@
         "repair": false,
         "outputs": 4,
         "x": 380,
-        "y": 1340,
+        "y": 1400,
         "wires": [
             [
                 "2c5ced3d88f9dc01"
@@ -1512,49 +1506,16 @@
         "repair": false,
         "outputs": 2,
         "x": 110,
-        "y": 1320,
+        "y": 1380,
         "wires": [
             [
-                "08c6b4ba2416bdc0"
+                "08c6b4ba2416bdc0",
+                "85d8e924fe8f695f"
             ],
             [
                 "8e40370c39a0ae84"
             ]
         ]
-    },
-    {
-        "id": "6aa582cbd67a6794",
-        "type": "debug",
-        "z": "71eb007304ebc98b",
-        "name": "ac",
-        "active": false,
-        "tosidebar": false,
-        "console": false,
-        "tostatus": true,
-        "complete": "ac",
-        "targetType": "msg",
-        "statusVal": "ac",
-        "statusType": "auto",
-        "x": 90,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "b498a97a60319266",
-        "type": "debug",
-        "z": "71eb007304ebc98b",
-        "name": "fire",
-        "active": false,
-        "tosidebar": false,
-        "console": false,
-        "tostatus": true,
-        "complete": "fire",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 90,
-        "y": 400,
-        "wires": []
     },
     {
         "id": "1860876b3e862f57",
@@ -1574,7 +1535,7 @@
         "repair": false,
         "outputs": 1,
         "x": 380,
-        "y": 1700,
+        "y": 1760,
         "wires": [
             [
                 "cbb1ec4c1f04c9c1"
@@ -1604,7 +1565,7 @@
         "repair": false,
         "outputs": 2,
         "x": 560,
-        "y": 1660,
+        "y": 1720,
         "wires": [
             [
                 "ade04527c462dbf1"
@@ -1668,7 +1629,7 @@
             "/devices/virtualCooler/controls/Last_rotation_unix"
         ],
         "x": 560,
-        "y": 1560,
+        "y": 1620,
         "wires": [
             [
                 "efdf524f7613af93"
@@ -1685,7 +1646,7 @@
             "/devices/virtualCooler/controls/Last_rotation_unix"
         ],
         "x": 380,
-        "y": 1880,
+        "y": 1940,
         "wires": [
             [
                 "c92217e7f75ffdf5"
@@ -1729,44 +1690,6 @@
         "wires": []
     },
     {
-        "id": "442285720a831f61",
-        "type": "wirenboard-out",
-        "z": "71eb007304ebc98b",
-        "name": "fan OFF",
-        "server": "5b8a1013ddb4815b",
-        "channel": [
-            "/devices/virtualController/controls/FAN"
-        ],
-        "command": "/on",
-        "commandType": "wb_cmd",
-        "payload": "off",
-        "payloadType": "msg",
-        "rbe": false,
-        "x": 920,
-        "y": 240,
-        "wires": [],
-        "icon": "font-awesome/fa-close"
-    },
-    {
-        "id": "3312e7ed5773fd8d",
-        "type": "wirenboard-out",
-        "z": "71eb007304ebc98b",
-        "name": "heater OFF",
-        "server": "5b8a1013ddb4815b",
-        "channel": [
-            "/devices/virtualController/controls/Heater"
-        ],
-        "command": "/on",
-        "commandType": "wb_cmd",
-        "payload": "off",
-        "payloadType": "msg",
-        "rbe": true,
-        "x": 930,
-        "y": 280,
-        "wires": [],
-        "icon": "font-awesome/fa-close"
-    },
-    {
         "id": "896c6e813be22a6d",
         "type": "wirenboard-out",
         "z": "71eb007304ebc98b",
@@ -1781,7 +1704,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 320,
+        "y": 300,
         "wires": [],
         "icon": "font-awesome/fa-snowflake-o"
     },
@@ -1800,7 +1723,7 @@
         "payloadType": "msg",
         "rbe": true,
         "x": 940,
-        "y": 360,
+        "y": 340,
         "wires": [],
         "icon": "font-awesome/fa-hand-stop-o"
     },
@@ -1819,7 +1742,7 @@
         "payloadType": "msg",
         "rbe": true,
         "x": 930,
-        "y": 500,
+        "y": 480,
         "wires": [],
         "icon": "font-awesome/fa-close"
     },
@@ -1838,7 +1761,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 920,
-        "y": 580,
+        "y": 560,
         "wires": [],
         "icon": "font-awesome/fa-close"
     },
@@ -1857,7 +1780,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 920,
-        "y": 540,
+        "y": 520,
         "wires": [],
         "icon": "font-awesome/fa-spinner"
     },
@@ -1865,37 +1788,19 @@
         "id": "a14422cf059acf3f",
         "type": "wirenboard-out",
         "z": "71eb007304ebc98b",
-        "name": "fan OFF",
+        "name": "fan, heat OFF",
         "server": "5b8a1013ddb4815b",
         "channel": [
-            "/devices/virtualController/controls/FAN"
-        ],
-        "command": "/on",
-        "commandType": "wb_cmd",
-        "payload": "off",
-        "payloadType": "msg",
-        "rbe": false,
-        "x": 920,
-        "y": 740,
-        "wires": [],
-        "icon": "font-awesome/fa-close"
-    },
-    {
-        "id": "527007fed4ead95d",
-        "type": "wirenboard-out",
-        "z": "71eb007304ebc98b",
-        "name": "heater OFF",
-        "server": "5b8a1013ddb4815b",
-        "channel": [
+            "/devices/virtualController/controls/FAN",
             "/devices/virtualController/controls/Heater"
         ],
         "command": "/on",
         "commandType": "wb_cmd",
         "payload": "off",
         "payloadType": "msg",
-        "rbe": true,
-        "x": 930,
-        "y": 780,
+        "rbe": false,
+        "x": 940,
+        "y": 720,
         "wires": [],
         "icon": "font-awesome/fa-close"
     },
@@ -1914,7 +1819,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 820,
+        "y": 760,
         "wires": [],
         "icon": "font-awesome/fa-close"
     },
@@ -1933,7 +1838,7 @@
         "payloadType": "msg",
         "rbe": true,
         "x": 930,
-        "y": 920,
+        "y": 980,
         "wires": [],
         "icon": "font-awesome/fa-fire"
     },
@@ -1952,7 +1857,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 920,
-        "y": 1000,
+        "y": 1060,
         "wires": [],
         "icon": "font-awesome/fa-close"
     },
@@ -1971,7 +1876,7 @@
         "payloadType": "msg",
         "rbe": true,
         "x": 930,
-        "y": 1040,
+        "y": 1100,
         "wires": [],
         "icon": "font-awesome/fa-close"
     },
@@ -1990,7 +1895,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 920,
-        "y": 1380,
+        "y": 1440,
         "wires": [],
         "icon": "font-awesome/fa-spinner"
     },
@@ -2009,7 +1914,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 920,
-        "y": 1700,
+        "y": 1760,
         "wires": [],
         "icon": "font-awesome/fa-close"
     },
@@ -2026,7 +1931,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 1900,
+        "y": 1960,
         "wires": [],
         "icon": "font-awesome/fa-exchange"
     },
@@ -2043,7 +1948,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 1500,
+        "y": 1560,
         "wires": [],
         "icon": "font-awesome/fa-exchange"
     },
@@ -2062,7 +1967,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 920,
-        "y": 1820,
+        "y": 1880,
         "wires": [],
         "icon": "font-awesome/fa-close"
     },
@@ -2081,7 +1986,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 920,
-        "y": 1780,
+        "y": 1840,
         "wires": [],
         "icon": "font-awesome/fa-spinner"
     },
@@ -2098,7 +2003,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 1220,
+        "y": 1280,
         "wires": [],
         "icon": "font-awesome/fa-exchange"
     },
@@ -2117,7 +2022,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 920,
-        "y": 1340,
+        "y": 1400,
         "wires": [],
         "icon": "font-awesome/fa-close"
     },
@@ -2136,7 +2041,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 380,
-        "y": 1660,
+        "y": 1720,
         "wires": [],
         "icon": "font-awesome/fa-close"
     },
@@ -2155,7 +2060,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 860,
+        "y": 800,
         "wires": []
     },
     {
@@ -2173,7 +2078,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 920,
-        "y": 1620,
+        "y": 1680,
         "wires": [],
         "icon": "font-awesome/fa-spinner"
     },
@@ -2192,7 +2097,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 460,
+        "y": 440,
         "wires": [],
         "icon": "font-awesome/fa-close"
     },
@@ -2211,7 +2116,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 1100,
+        "y": 1160,
         "wires": [],
         "icon": "font-awesome/fa-close"
     },
@@ -2230,7 +2135,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 1140,
+        "y": 1200,
         "wires": [],
         "icon": "font-awesome/fa-snowflake-o"
     },
@@ -2249,7 +2154,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 1420,
+        "y": 1480,
         "wires": [],
         "icon": "font-awesome/fa-close"
     },
@@ -2268,7 +2173,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 1460,
+        "y": 1520,
         "wires": [],
         "icon": "font-awesome/fa-snowflake-o"
     },
@@ -2287,7 +2192,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 1540,
+        "y": 1600,
         "wires": [],
         "icon": "font-awesome/fa-close"
     },
@@ -2306,7 +2211,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 1580,
+        "y": 1640,
         "wires": [],
         "icon": "font-awesome/fa-snowflake-o"
     },
@@ -2325,7 +2230,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 1660,
+        "y": 1720,
         "wires": [],
         "icon": "font-awesome/fa-close"
     },
@@ -2344,7 +2249,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 1740,
+        "y": 1800,
         "wires": [],
         "icon": "font-awesome/fa-snowflake-o"
     },
@@ -2363,7 +2268,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 1860,
+        "y": 1920,
         "wires": [],
         "icon": "font-awesome/fa-close"
     },
@@ -2382,7 +2287,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 1940,
+        "y": 2000,
         "wires": [],
         "icon": "font-awesome/fa-snowflake-o"
     },
@@ -2401,7 +2306,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 960,
+        "y": 1020,
         "wires": [],
         "icon": "font-awesome/fa-recycle"
     },
@@ -2423,7 +2328,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 550,
-        "y": 1220,
+        "y": 1280,
         "wires": [
             [
                 "a959b7849272169d",
@@ -2449,7 +2354,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 550,
-        "y": 1440,
+        "y": 1500,
         "wires": [
             [
                 "83cb0dcb1bb809b0",
@@ -2475,7 +2380,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 550,
-        "y": 1900,
+        "y": 1960,
         "wires": [
             [
                 "698eb579f85ca295",
@@ -2501,7 +2406,7 @@
         "repair": false,
         "outputs": 1,
         "x": 560,
-        "y": 1480,
+        "y": 1540,
         "wires": [
             [
                 "a671dbdc5c700e27",
@@ -2527,7 +2432,7 @@
         "repair": false,
         "outputs": 1,
         "x": 560,
-        "y": 1860,
+        "y": 1920,
         "wires": [
             [
                 "6128e265ef1936ce",
@@ -2553,7 +2458,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 550,
-        "y": 1400,
+        "y": 1460,
         "wires": [
             [
                 "4fe966030cc00c55"
@@ -2578,7 +2483,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 550,
-        "y": 1940,
+        "y": 2000,
         "wires": [
             [
                 "4b771031cd722e53"
@@ -2595,7 +2500,7 @@
             "/devices/virtualCooler/controls/Last_rotation_unix"
         ],
         "x": 380,
-        "y": 1180,
+        "y": 1240,
         "wires": [
             [
                 "2e351f1e5acb34fa"
@@ -2620,7 +2525,7 @@
         "repair": false,
         "outputs": 1,
         "x": 560,
-        "y": 1180,
+        "y": 1240,
         "wires": [
             [
                 "2deac898a9d7e314",
@@ -2646,7 +2551,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 550,
-        "y": 1260,
+        "y": 1320,
         "wires": [
             [
                 "0bca5cdf316950aa"
@@ -2668,7 +2573,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 1180,
+        "y": 1240,
         "wires": [],
         "icon": "font-awesome/fa-close"
     },
@@ -2687,7 +2592,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 1260,
+        "y": 1320,
         "wires": [],
         "icon": "font-awesome/fa-snowflake-o"
     },
@@ -2706,7 +2611,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 390,
-        "y": 1520,
+        "y": 1580,
         "wires": [],
         "icon": "font-awesome/fa-snowflake-o"
     },
@@ -2723,8 +2628,8 @@
             "/devices/virtualController/controls/tIN_overheat",
             "/devices/virtualController/controls/tIN_overheat_delta"
         ],
-        "x": 690,
-        "y": 640,
+        "x": 710,
+        "y": 600,
         "wires": [
             [
                 "046475f736f969f7"
@@ -2741,35 +2646,35 @@
                 "t": "set",
                 "p": "ac",
                 "pt": "msg",
-                "to": "$number(payload[\"/devices/virtualACdetector/controls/AC_alarm\"])",
+                "to": "$number(ac)",
                 "tot": "jsonata"
             },
             {
                 "t": "set",
                 "p": "tBox",
                 "pt": "msg",
-                "to": "$number(payload[\"/devices/virtualController/controls/tIN\"])",
+                "to": "$number(tBox)",
                 "tot": "jsonata"
             },
             {
                 "t": "set",
                 "p": "tBoxOverheat",
                 "pt": "msg",
-                "to": "$number(payload[\"/devices/virtualController/controls/tIN_overheat\"])",
+                "to": "$number(tBoxOverheat)",
                 "tot": "jsonata"
             },
             {
                 "t": "set",
                 "p": "tBoxOverheatDelta",
                 "pt": "msg",
-                "to": "$number(payload[\"/devices/virtualController/controls/tIN_overheat_delta\"])",
+                "to": "$number(tBoxOverheatDelta)",
                 "tot": "jsonata"
             },
             {
                 "t": "set",
                 "p": "tBoxCooling",
                 "pt": "msg",
-                "to": "$number(payload[\"/devices/virtualController/controls/tIN_cooling\"])",
+                "to": "$number(tBoxCooling)",
                 "tot": "jsonata"
             }
         ],
@@ -2779,7 +2684,7 @@
         "to": "",
         "reg": false,
         "x": 200,
-        "y": 680,
+        "y": 660,
         "wires": [
             [
                 "ab6e272c5d29e8cb"
@@ -2809,7 +2714,7 @@
         "repair": false,
         "outputs": 2,
         "x": 290,
-        "y": 500,
+        "y": 480,
         "wires": [
             [
                 "55f7eed8fc1ccd86",
@@ -2839,7 +2744,7 @@
         "repair": false,
         "outputs": 1,
         "x": 520,
-        "y": 560,
+        "y": 540,
         "wires": [
             [
                 "182b4ef7d7bba354",
@@ -2862,7 +2767,7 @@
         "finalize": "",
         "libs": [],
         "x": 340,
-        "y": 560,
+        "y": 540,
         "wires": [
             [
                 "8d2b025a9980e02c"
@@ -2884,7 +2789,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 350,
-        "y": 600,
+        "y": 580,
         "wires": [],
         "icon": "font-awesome/fa-snowflake-o"
     },
@@ -2905,11 +2810,11 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 690,
-        "y": 680,
+        "x": 830,
+        "y": 600,
         "wires": [
             [
-                "a13fc2b4f2f41761"
+                "ae340c5faa3d8795"
             ]
         ]
     },
@@ -2928,7 +2833,378 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 520,
-        "y": 600,
+        "y": 580,
+        "wires": [],
+        "icon": "font-awesome/fa-close"
+    },
+    {
+        "id": "85d8e924fe8f695f",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "fan OFF",
+        "server": "5b8a1013ddb4815b",
+        "channel": [
+            "/devices/virtualController/controls/FAN"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "off",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 380,
+        "y": 1320,
+        "wires": [],
+        "icon": "font-awesome/fa-close"
+    },
+    {
+        "id": "ae340c5faa3d8795",
+        "type": "change",
+        "z": "71eb007304ebc98b",
+        "name": "variablesName",
+        "rules": [
+            {
+                "t": "set",
+                "p": "ac",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualACdetector/controls/AC_alarm\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "tBox",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/tIN\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "tBoxOverheat",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/tIN_overheat\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "tBoxOverheatDelta",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/tIN_overheat_delta\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "tBoxCooling",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/tIN_cooling\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 660,
+        "wires": [
+            [
+                "a13fc2b4f2f41761"
+            ]
+        ]
+    },
+    {
+        "id": "11da7f86b8dad041",
+        "type": "wirenboard-get",
+        "z": "71eb007304ebc98b",
+        "name": "AC",
+        "server": "5b8a1013ddb4815b",
+        "channel": [
+            "/devices/virtualACdetector/controls/AC_alarm",
+            "/devices/virtualController/controls/tIN",
+            "/devices/virtualController/controls/tIN_cooling",
+            "/devices/virtualController/controls/tIN_overheat",
+            "/devices/virtualController/controls/tIN_overheat_delta"
+        ],
+        "x": 730,
+        "y": 840,
+        "wires": [
+            [
+                "016a5905ce24fba9"
+            ]
+        ]
+    },
+    {
+        "id": "2f07b5e464d3c519",
+        "type": "change",
+        "z": "71eb007304ebc98b",
+        "name": "varNum",
+        "rules": [
+            {
+                "t": "set",
+                "p": "door",
+                "pt": "msg",
+                "to": "$number(door)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "tBox",
+                "pt": "msg",
+                "to": "$number(tBox)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "tBoxOverheat",
+                "pt": "msg",
+                "to": "$number(tBoxOverheat)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "tBoxOverheatDelta",
+                "pt": "msg",
+                "to": "$number(tBoxOverheatDelta)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "tBoxCooling",
+                "pt": "msg",
+                "to": "$number(tBoxCooling)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 280,
+        "y": 920,
+        "wires": [
+            [
+                "dd5f3ccb544200ff"
+            ]
+        ]
+    },
+    {
+        "id": "dd5f3ccb544200ff",
+        "type": "switch",
+        "z": "71eb007304ebc98b",
+        "name": "door",
+        "property": "door",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 330,
+        "y": 760,
+        "wires": [
+            [
+                "a14422cf059acf3f",
+                "13f84f0687963dde",
+                "ab76c60462b371d7"
+            ],
+            [
+                "e6e7233af9a20bf1"
+            ]
+        ]
+    },
+    {
+        "id": "44e19a1c09e9910f",
+        "type": "switch",
+        "z": "71eb007304ebc98b",
+        "name": "tºC_Box",
+        "property": "tBox",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "overheatDelta",
+                "vt": "msg"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 560,
+        "y": 800,
+        "wires": [
+            [
+                "250f51f187b821bb",
+                "11da7f86b8dad041",
+                "275a54c113369a38"
+            ]
+        ],
+        "icon": "font-awesome/fa-thermometer-half"
+    },
+    {
+        "id": "e6e7233af9a20bf1",
+        "type": "function",
+        "z": "71eb007304ebc98b",
+        "name": "calculationDelta",
+        "func": "var overheatDelta = msg.tBoxOverheat - msg.tBoxOverheatDelta;\nmsg.overheatDelta = overheatDelta;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 800,
+        "wires": [
+            [
+                "44e19a1c09e9910f"
+            ]
+        ]
+    },
+    {
+        "id": "250f51f187b821bb",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "freezer ON",
+        "server": "5b8a1013ddb4815b",
+        "channel": [
+            "/devices/virtualCooler/controls/Mode"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "tBoxCooling",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 410,
+        "y": 840,
+        "wires": [],
+        "icon": "font-awesome/fa-snowflake-o"
+    },
+    {
+        "id": "016a5905ce24fba9",
+        "type": "delay",
+        "z": "71eb007304ebc98b",
+        "name": "delay",
+        "pauseType": "timed",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "5",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": true,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 730,
+        "y": 880,
+        "wires": [
+            [
+                "c76aeed65fc546a3"
+            ]
+        ]
+    },
+    {
+        "id": "275a54c113369a38",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "fan OFF",
+        "server": "5b8a1013ddb4815b",
+        "channel": [
+            "/devices/virtualController/controls/FAN"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "off",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 580,
+        "y": 840,
+        "wires": [],
+        "icon": "font-awesome/fa-close"
+    },
+    {
+        "id": "c76aeed65fc546a3",
+        "type": "change",
+        "z": "71eb007304ebc98b",
+        "name": "variablesName",
+        "rules": [
+            {
+                "t": "set",
+                "p": "ac",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualACdetector/controls/AC_alarm\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "tBox",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/tIN\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "tBoxOverheat",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/tIN_overheat\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "tBoxOverheatDelta",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/tIN_overheat_delta\"]",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "tBoxCooling",
+                "pt": "msg",
+                "to": "payload[\"/devices/virtualController/controls/tIN_cooling\"]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 920,
+        "wires": [
+            [
+                "2f07b5e464d3c519"
+            ]
+        ]
+    },
+    {
+        "id": "8f5eadf2af77d9f0",
+        "type": "wirenboard-out",
+        "z": "71eb007304ebc98b",
+        "name": "fan, heat OFF",
+        "server": "5b8a1013ddb4815b",
+        "channel": [
+            "/devices/virtualController/controls/FAN",
+            "/devices/virtualController/controls/Heater"
+        ],
+        "command": "/on",
+        "commandType": "wb_cmd",
+        "payload": "off",
+        "payloadType": "msg",
+        "rbe": false,
+        "x": 940,
+        "y": 260,
         "wires": [],
         "icon": "font-awesome/fa-close"
     },
