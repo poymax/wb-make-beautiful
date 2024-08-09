@@ -2,37 +2,35 @@ var DEVICE_ID = 'virtualACdetector'
 var DEVICE_TITLE = 'Virtual AC detector'
 var PATH_TO_CONFIG = '/etc/wb-rules/virtualACdetector/config.conf'
 
+var voltageIsOk = true
+var input1IsOk = true
+var input2IsOk = true
+var input3IsOk = true
+
 var device = dev[DEVICE_ID]
 var config = readConfig(PATH_TO_CONFIG)
-
-var voltageParams = config.voltage
-var inputParams = [config.input1, config.input2, config.input3]
-var inputVoltages = ['Input_1_voltage', 'Input_2_voltage', 'Input_3_voltage']
 
 var virtualDevice = defineVirtualDevice(DEVICE_ID, {
     title: DEVICE_TITLE,
     cells: {
         AC_alarm: { type: 'alarm', value: false, readonly: false, order: 1 },
-        Input_1_alarm: { type: 'alarm', value: false, readonly: false, order: 2 },
-        Input_2_alarm: { type: 'alarm', value: false, readonly: false, order: 3 },
-        Input_3_alarm: { type: 'alarm', value: false, readonly: false, order: 4 },
-        Voltage: { type: 'voltage', value: 0, readonly: true, order: 5 },
-        Input_1_voltage: { type: 'voltage', value: 0, readonly: true, order: 6 },
-        Input_2_voltage: { type: 'voltage', value: 0, readonly: true, order: 7 },
-        Input_3_voltage: { type: 'voltage', value: 0, readonly: true, order: 8 },
-        Generator: { type: 'switch', value: false, readonly: true, order: 9 },
-        ATS_1: { type: 'switch', value: false, readonly: true, order: 10 },
-        ATS_2: { type: 'switch', value: false, readonly: true, order: 11 },
-        ATS_3: { type: 'switch', value: false, readonly: true, order: 12 },
+        Voltage: { type: 'voltage', value: 0, readonly: true, order: 2 },
+        Input_1: { type: 'voltage', value: 0, readonly: true, order: 3 },
+        Input_2: { type: 'voltage', value: 0, readonly: true, order: 4 },
+        Input_3: { type: 'voltage', value: 0, readonly: true, order: 5 },
+        Generator: { type: 'switch', value: false, readonly: true, order: 6 },
+        ATS_1: { type: 'switch', value: false, readonly: true, order: 7 },
+        ATS_2: { type: 'switch', value: false, readonly: true, order: 8 },
+        ATS_3: { type: 'switch', value: false, readonly: true, order: 9 },
     },
 })
 
 var controlMap = {
     Generator: config.generator[0],
-    Voltage: voltageParams.topic,
-    Input_1_voltage: config.input1.topic,
-    Input_2_voltage: config.input2.topic,
-    Input_3_voltage: config.input3.topic,
+    Voltage: config.voltage.topic,
+    Input_1: config.input1.topic,
+    Input_2: config.input2.topic,
+    Input_3: config.input3.topic,
     ATS_1: config.ATS1[0],
     ATS_2: config.ATS2[0],
     ATS_3: config.ATS3[0],
@@ -58,31 +56,20 @@ for (var virtualControl in controlMap) {
     }
 }
 
-function checkVoltage(voltage, params, isAlarmActive) {
-    var thresholdMin = params.min + (isAlarmActive ? params.delta : 0)
-    var thresholdMax = params.max - (isAlarmActive ? params.delta : 0)
+function checkVoltage(voltage, params, nowIsOk) {
+    var thresholdMin = params.min + (nowIsOk ? 0 : params.delta)
+    var thresholdMax = params.max - (nowIsOk ? 0 : params.delta)
 
     return voltage >= thresholdMin && voltage <= thresholdMax
 }
 
-function checkPower() {
-    var generatorDisabled = !device.Generator
-    var voltageIsOk = checkVoltage(device.Voltage, voltageParams, device.AC_alarm)
-
-    var inputIsOk = false
-    for (var i = 0; i < inputParams.length; i++) {
-        if (virtualDevice.isControlExists(inputVoltages[i]) &&
-            checkVoltage(device[inputVoltages[i]], inputParams[i], device['Input_' + i + '_alarm'])) {
-            inputIsOk = true
-            break
-        }
-    }
-
-    return generatorDisabled && voltageIsOk && inputIsOk
-}
-
 function setAlarm() {
-    device.AC_alarm = !checkPower()
+    voltageIsOk = virtualDevice.isControlExists('Voltage') && checkVoltage(device.Voltage, config.voltage, voltageIsOk)
+    input1IsOk = virtualDevice.isControlExists('Input_1') && checkVoltage(device.Input_1, config.input1, input1IsOk)
+    input2IsOk = virtualDevice.isControlExists('Input_2') && checkVoltage(device.Input_2, config.input2, input2IsOk)
+    input3IsOk = virtualDevice.isControlExists('Input_3') && checkVoltage(device.Input_3, config.input3, input3IsOk)
+
+    device.AC_alarm = !(voltageIsOk && !device.Generator && (input1IsOk || input2IsOk || input3IsOk))
 }
 
 function findKeyByValue(map, value) {
