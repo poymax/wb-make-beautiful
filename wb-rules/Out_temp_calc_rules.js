@@ -1,7 +1,7 @@
-var fullPowerTopic = 'wb-map6s_24/P 1'
-var cool1PowerTopic = 'wb-map6s_24/P 3'
-var cool2PowerTopic = 'wb-map6s_24/d 4'
-var fanCurrentTopic = 'wb-map6s_24/Irms 2'
+var fullPowerTopic = 'wb-map6s_(addr)/P 1'
+var cool1PowerTopic = 'wb-map6s_(addr)/P 3'
+var cool2PowerTopic = 'wb-map6s_(addr)/d 4'
+var fanCurrentTopic = 'wb-map6s_(addr)/Irms 2'
 
 var fixPowerFanEnableTopic = 'Out_temp_calc/Fix_power_fan'
 var fanPowerValueTopic = 'Out_temp_calc/Fan_power'
@@ -34,11 +34,7 @@ function setOutTemp() {
 }
 
 defineRule('recalcOutTemp', {
-    whenChanged: [
-        fullPowerTopic,
-        fanPowerValueTopic,
-        vFanValueTopic,
-    ],
+    when: cron("*/10 * * * * *"),
     then: setOutTemp,
 })
 

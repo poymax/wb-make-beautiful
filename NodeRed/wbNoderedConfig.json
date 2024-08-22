@@ -796,7 +796,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 680,
+        "x": 700,
         "y": 540,
         "wires": [
             [
@@ -821,7 +821,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 690,
+        "x": 710,
         "y": 500,
         "wires": [
             [
@@ -1212,7 +1212,7 @@
         "repair": false,
         "outputs": 4,
         "x": 380,
-        "y": 1840,
+        "y": 1820,
         "wires": [
             [
                 "340d503b6532ba8d"
@@ -1327,7 +1327,7 @@
         "repair": false,
         "outputs": 2,
         "x": 380,
-        "y": 1900,
+        "y": 1880,
         "wires": [
             [
                 "6fbc27363f35acfe",
@@ -1373,7 +1373,7 @@
         "finalize": "",
         "libs": [],
         "x": 380,
-        "y": 1980,
+        "y": 1960,
         "wires": [
             [
                 "61807e92dc33fd5e"
@@ -1579,7 +1579,7 @@
         "id": "864bdad352423135",
         "type": "wirenboard-in",
         "z": "71eb007304ebc98b",
-        "name": "NK Node",
+        "name": "LP Node",
         "server": "5b8a1013ddb4815b",
         "channel": [
             "/devices/virtualACdetector/controls/AC_alarm",
@@ -1646,7 +1646,7 @@
             "/devices/virtualCooler/controls/Last_rotation_unix"
         ],
         "x": 380,
-        "y": 1940,
+        "y": 1920,
         "wires": [
             [
                 "c92217e7f75ffdf5"
@@ -1895,7 +1895,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 920,
-        "y": 1440,
+        "y": 1420,
         "wires": [],
         "icon": "font-awesome/fa-spinner"
     },
@@ -1914,7 +1914,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 920,
-        "y": 1760,
+        "y": 1740,
         "wires": [],
         "icon": "font-awesome/fa-close"
     },
@@ -1931,7 +1931,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 1960,
+        "y": 1940,
         "wires": [],
         "icon": "font-awesome/fa-exchange"
     },
@@ -1948,7 +1948,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 1560,
+        "y": 1540,
         "wires": [],
         "icon": "font-awesome/fa-exchange"
     },
@@ -1967,7 +1967,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 920,
-        "y": 1880,
+        "y": 1860,
         "wires": [],
         "icon": "font-awesome/fa-close"
     },
@@ -1986,7 +1986,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 920,
-        "y": 1840,
+        "y": 1820,
         "wires": [],
         "icon": "font-awesome/fa-spinner"
     },
@@ -2022,7 +2022,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 920,
-        "y": 1400,
+        "y": 1380,
         "wires": [],
         "icon": "font-awesome/fa-close"
     },
@@ -2078,7 +2078,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 920,
-        "y": 1680,
+        "y": 1660,
         "wires": [],
         "icon": "font-awesome/fa-spinner"
     },
@@ -2154,7 +2154,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 1480,
+        "y": 1460,
         "wires": [],
         "icon": "font-awesome/fa-close"
     },
@@ -2173,7 +2173,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 1520,
+        "y": 1500,
         "wires": [],
         "icon": "font-awesome/fa-snowflake-o"
     },
@@ -2192,7 +2192,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 1600,
+        "y": 1580,
         "wires": [],
         "icon": "font-awesome/fa-close"
     },
@@ -2211,7 +2211,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 1640,
+        "y": 1620,
         "wires": [],
         "icon": "font-awesome/fa-snowflake-o"
     },
@@ -2230,7 +2230,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 1720,
+        "y": 1700,
         "wires": [],
         "icon": "font-awesome/fa-close"
     },
@@ -2249,7 +2249,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 1800,
+        "y": 1780,
         "wires": [],
         "icon": "font-awesome/fa-snowflake-o"
     },
@@ -2268,7 +2268,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 1920,
+        "y": 1900,
         "wires": [],
         "icon": "font-awesome/fa-close"
     },
@@ -2287,7 +2287,7 @@
         "payloadType": "msg",
         "rbe": false,
         "x": 930,
-        "y": 2000,
+        "y": 1980,
         "wires": [],
         "icon": "font-awesome/fa-snowflake-o"
     },
@@ -2380,7 +2380,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 550,
-        "y": 1960,
+        "y": 1940,
         "wires": [
             [
                 "698eb579f85ca295",
@@ -2432,7 +2432,7 @@
         "repair": false,
         "outputs": 1,
         "x": 560,
-        "y": 1920,
+        "y": 1900,
         "wires": [
             [
                 "6128e265ef1936ce",
@@ -2483,7 +2483,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 550,
-        "y": 2000,
+        "y": 1980,
         "wires": [
             [
                 "4b771031cd722e53"
@@ -2619,7 +2619,7 @@
         "id": "fca420e2cb0d0323",
         "type": "wirenboard-get",
         "z": "71eb007304ebc98b",
-        "name": "AC",
+        "name": "LP Node",
         "server": "5b8a1013ddb4815b",
         "channel": [
             "/devices/virtualACdetector/controls/AC_alarm",
@@ -2628,7 +2628,7 @@
             "/devices/virtualController/controls/tIN_overheat",
             "/devices/virtualController/controls/tIN_overheat_delta"
         ],
-        "x": 710,
+        "x": 740,
         "y": 600,
         "wires": [
             [
@@ -2810,7 +2810,7 @@
         "drop": true,
         "allowrate": false,
         "outputs": 1,
-        "x": 830,
+        "x": 870,
         "y": 600,
         "wires": [
             [
@@ -2903,7 +2903,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 720,
+        "x": 760,
         "y": 660,
         "wires": [
             [
@@ -2915,7 +2915,7 @@
         "id": "11da7f86b8dad041",
         "type": "wirenboard-get",
         "z": "71eb007304ebc98b",
-        "name": "AC",
+        "name": "LP Node",
         "server": "5b8a1013ddb4815b",
         "channel": [
             "/devices/virtualACdetector/controls/AC_alarm",
@@ -2924,7 +2924,7 @@
             "/devices/virtualController/controls/tIN_overheat",
             "/devices/virtualController/controls/tIN_overheat_delta"
         ],
-        "x": 730,
+        "x": 740,
         "y": 840,
         "wires": [
             [
