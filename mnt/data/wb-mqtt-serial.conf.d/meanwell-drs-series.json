@@ -1,0 +1,256 @@
+{
+    "title": "UPS Meanwell DRS series",
+    "device_type": "MW UPS-DRS-series",
+    "group": "g-ups",
+    "device": {
+        "name": "UPS-DRS-series",
+        "id": "mwdrs",
+		"max_read_registers": 26,
+		"response_timeout_ms": 1000,
+		"channels": [
+			{
+				"name": "AC_STATUS",
+                "reg_type": "holding",
+                "address": "0x0040:5:1",
+                "type": "switch",
+				"on_value": 0,
+				"off_value": 1,
+                "format": "u16",
+				"readonly": true
+	    	},
+			{
+				"name": "DC_STATUS",
+                "reg_type": "holding",
+                "address": "0x00C3:1:1",
+                "type": "switch",
+				"on_value": 1,
+				"off_value": 0,
+                "format": "u16",
+				"readonly": true
+	    	},
+			{
+				"name": "DETECTED_BATTERY",
+                "reg_type": "holding",
+                "address": "0x00B8:11:1",
+                "type": "switch",
+				"on_value": 0,
+				"off_value": 1,
+                "format": "u16",
+				"readonly": true
+	    	},
+			{
+				"name": "FULL_BATTERY",
+                "reg_type": "holding",
+                "address": "0x00B8:0:1",
+                "type": "switch",
+				"on_value": 1,
+				"off_value": 0,
+                "format": "u16",
+				"readonly": true
+	    	},
+			{
+				"name": "DISCHARGING_BATTERY",
+                "reg_type": "holding",
+                "address": "0x00B8:7:1",
+                "type": "switch",
+				"on_value": 1,
+				"off_value": 0,
+                "format": "u16",
+				"readonly": true
+	    	},
+			{
+				"name": "CHARGER_CC_STATUS",
+                "reg_type": "holding",
+                "address": "0x00B8:1:1",
+                "type": "switch",
+				"on_value": 1,
+				"off_value": 0,
+                "format": "u16",
+				"readonly": true
+	    	},
+			{
+				"name": "CHARGER_CV_STATUS",
+                "reg_type": "holding",
+                "address": "0x00B8:2:1",
+                "type": "switch",
+				"on_value": 1,
+				"off_value": 0,
+                "format": "u16",
+				"readonly": true
+	    	},
+			{
+				"name": "CHARGER_FV_STATUS",
+                "reg_type": "holding",
+                "address": "0x00B8:3:1",
+                "type": "switch",
+				"on_value": 1,
+				"off_value": 0,
+                "format": "u16",
+				"readonly": true
+	    	},
+            {
+                "name": "V_IN",
+                "reg_type": "input",
+                "address": "0x0050",
+                "type": "voltage",
+				"format": "u16",
+				"scale": 0.1,
+				"round_to": 0.01
+            },
+            {
+                "name": "V_OUT",
+                "reg_type": "input",
+                "address": "0x0060",
+                "type": "voltage",
+				"format": "u16",
+				"scale": 0.01,
+				"round_to": 0.01
+            },
+            {
+                "name": "I_OUT",
+                "reg_type": "input",
+                "address": "0x0061",
+                "type": "current",
+				"format": "u16",
+				"scale": 0.01,
+				"round_to": 0.01
+            },
+            {
+                "name": "INT_TEMP",
+                "reg_type": "input",
+                "address": "0x0062",
+                "type": "temperature",
+				"format": "u16",
+				"scale": 0.1,
+				"round_to": 0.01
+            },
+            {
+                "name": "V_BAT",
+                "reg_type": "input",
+                "address": "0x00D3",
+                "type": "voltage",
+				"format": "u16",
+				"scale": 0.01,
+				"round_to": 0.01
+            },
+            {
+                "name": "I_BAT",
+                "reg_type": "input",
+                "address": "0x00D4",
+                "type": "current",
+				"format": "u16",
+				"scale": 0.01,
+				"round_to": 0.01
+            },
+            {
+                "name": "BAT_TEMP",
+                "reg_type": "input",
+                "address": "0x00D5",
+                "type": "temperature",
+				"format": "u16",
+				"scale": 0.1,
+				"round_to": 0.01
+            },
+			{
+                "name": "V_OUT_SET",
+                "reg_type": "holding",
+                "address": "0x0020",
+                "type": "voltage",
+				"format": "u16",
+				"scale": 0.01,
+				"round_to": 0.01
+            },
+	    	{
+				"name": "V_PROTECT_BAT_LOW",
+				"req_type": "holding",
+				"address": "0x00D0",
+				"type": "voltage",
+				"format": "u16",
+				"scale": 0.01,
+				"round_to": 0.01
+	    	},
+	    	{
+				"name": "V_PROTECT_BAT_OFF",
+				"reg_type": "holding",
+				"address": "0x00D1",
+				"type": "voltage",
+				"format": "u16",
+				"scale": 0.01,
+				"round_to": 0.01
+	    	},
+	    	{
+				"name": "I_CURVE_CC",
+                "reg_type": "holding",
+				"address": "0x00B0",
+				"type": "current",
+				"format": "u16",
+				"scale": 0.01,
+				"round_to": 0.01
+	    	},
+	    	{
+				"name": "I_CURVE_TC",
+                "reg_type": "holding",
+                "address": "0x00B3",
+                "type": "current",
+                "format": "u16",
+                "scale": 0.01,
+                "round_to": 0.01
+	    	},
+	    	{
+				"name": "V_CURVE_CV",
+				"reg_type": "holding",
+				"address": "0x00B1",
+				"type": "voltage",
+				"format": "u16",
+				"scale": 0.01,
+				"round_to": 0.01
+	    	},
+	    	{
+				"name": "V_CURVE_FV",
+				"reg_type": "holding",
+				"address": "0x00B2",
+				"type": "voltage",
+				"format": "u16",
+				"scale": 0.01,
+				"round_to": 0.01
+	    	},
+	    	{
+				"name": "CURVE_CC_TIMEOUT",
+				"rwg_type": "holding",
+				"address": "0x00B5",
+				"type": "value",
+				"format": "u16",
+				"scale": 1,
+				"units" : "m"
+	    	},
+	    	{
+				"name": "CURVE_CV_TIMEOUT",
+                "reg_type": "holding",
+                "address": "0x00B6",
+                "type": "value",
+                "format": "u16",
+                "scale": 1,
+				"units" : "m"
+	    	},
+	    	{
+				"name": "CURVE_FV_TIMEOUT",
+                "reg_type": "holding",
+                "address": "0x00B7",
+                "type": "value",
+                "format": "u16",
+                "scale": 1,
+				"units" : "m"
+	    	},
+			{
+				"name": "SELF_TEST_BATTERY",
+                "reg_type": "holding",
+                "address": "0x00D2:0:1",
+                "type": "switch",
+				"on_value": 1,
+				"off_value": 0,
+                "format": "u16",
+				"readonly": false
+	    	}
+        ]
+    }
+}
