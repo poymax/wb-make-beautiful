@@ -5,9 +5,16 @@ var message;
 var token = config['token'];
 var chatId = config['chatId'];
 var messageThreadId = config['messageThreadId'];
-var fireAlarmTopic = 'virtualFireDetector/fire';
+var fireAlarmTopic = 'virtualFireDetector/Fire_alarm';
 var doorAlarmTopic = 'virtualDoor/Door';
-var acAlarmTopic = 'virtualACdetector/AC';
+var acAlarmTopic = 'virtualACdetector/AC_alarm';
+var city_1 = config['city_1'];
+var city_2 = config['city_2'];
+var city_3 = config['city_3'];
+var cityVoltage_1 = config[cityVoltage_1];
+var cityVoltage_2 = config[cityVoltage_2];
+var cityVoltage_3 = config[cityVoltage_3];
+var generator = config['generator'];
 var upsStatus = 'shtyl/Work_status';
 var tBoxTopic = 'alarm/high_temp';
 
@@ -29,17 +36,65 @@ if (acAlarmTopic) {
   var acAlarmRule = defineRule("AC", {
    whenChanged: acAlarmTopic,
     then: function () {
-      message = dev[acAlarmTopic] ? "Электричество\\ кончилось!" : "Питание\\ в\\ норме!";
+      if (dev[acAlarmTopic] == true) {
+        message = "Электричество\\ кончилось!";
+      }
       checkAlarm()
     }
   });
   runRule(acAlarmRule)
 }
+if (city_1) {
+  var city1Rule = defineRule("AC1", {
+   whenChanged: city_1,
+    then: function () {
+      if (dev[city_1] == true) {
+        message = "Ввод\\ электропитания\\ №1:\\ активирован!\\ " + dev[cityVoltage_1];
+      }
+      checkAlarm()
+    }
+  });
+  runRule(city1Rule)
+}
+if (city_2) {
+  var city1Rule = defineRule("AC2", {
+   whenChanged: city_2,
+    then: function () {
+      if (dev[city_2] == true) {
+        message = "Ввод\\ электропитания\\ №2:\\ активирован!\\ " + dev[cityVoltage_2];
+      }
+      checkAlarm()
+    }
+  });
+  runRule(city1Rule)
+}
+if (city_3) {
+  var city1Rule = defineRule("AC3", {
+   whenChanged: city_3,
+    then: function () {
+      if (dev[city_3] == true) {
+        message = "Ввод\\ электропитания\\ №3:\\ активирован!\\ " + dev[cityVoltage_3];
+      }
+      checkAlarm()
+    }
+  });
+  runRule(city1Rule)
+}
+if (generator) {
+  var city1Rule = defineRule("gen", {
+   whenChanged: generator,
+    then: function () {
+      message = dev[generator] ? "Генератор\\ подключен!" : "Генератор\\ отключен!";
+      checkAlarm()
+    }
+  });
+  runRule(city1Rule)
+}
 if (upsStatus) {
   var upsAlarmRule = defineRule("UPS", {
    whenChanged: upsStatus,
     then: function () {
-      message = "Статус ИБП:\\ " + dev[upsStatus];
+      message = "Статус\\ ИБП:\\ " + dev[upsStatus];
       checkAlarm()
     }
   });
