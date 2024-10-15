@@ -78,23 +78,7 @@ function setAlarm() {
     virtualDevice.isControlExists(TOPIC_VOLTAGE) &&
     checkVoltage(device[TOPIC_VOLTAGE], config.voltage, voltageIsOk);
 
-  input1IsOk =
-    virtualDevice.isControlExists(TOPIC_INPUT_1) &&
-    checkVoltage(device[TOPIC_INPUT_1], config.input1, input1IsOk);
-
-  input2IsOk =
-    virtualDevice.isControlExists(TOPIC_INPUT_2) &&
-    checkVoltage(device[TOPIC_INPUT_2], config.input2, input2IsOk);
-
-  input3IsOk =
-    virtualDevice.isControlExists(TOPIC_INPUT_3) &&
-    checkVoltage(device[TOPIC_INPUT_3], config.input3, input3IsOk);
-
-  device[TOPIC_AC_ALARM] = !(
-    voltageIsOk &&
-    !device.Generator &&
-    (input1IsOk || input2IsOk || input3IsOk)
-  );
+  device[TOPIC_AC_ALARM] = !(voltageIsOk && !device.Generator);
 }
 
 function findKeyByValue(map, value) {
