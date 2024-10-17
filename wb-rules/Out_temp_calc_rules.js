@@ -34,13 +34,6 @@ function setOutTemp() {
 }
 
 defineRule('recalcOutTemp', {
-    when: cron("*/10 * * * * *"),
-    then: setOutTemp,
+    when: cron("@every 1m"),
+    then: setOutTemp
 })
-
-defineRule('fixPowerFan', {
-    whenChanged: fixPowerFanEnableTopic,
-    then: fixPowerFan,
-})
-
-fixPowerFan(dev[fixPowerFanEnableTopic])
