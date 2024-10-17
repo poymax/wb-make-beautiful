@@ -27,27 +27,27 @@ defineVirtualDevice('alarm', {
 })
 
 function checkTboxLowAlarm(value) {
-  if (value < dev[tBoxCold]) {
-     dev[tBoxLowAlarm] = true; 
+  if (value < (dev[tBoxCold] - dev[tBoxColdDelta])) {
+     dev[tBoxLowAlarm] = true;
     }
-    if (value > (dev[tBoxCold] + dev[tBoxColdDelta])) {
+    if (value > dev[tBoxCold]) {
       dev[tBoxLowAlarm] = false;
-    } 
+    }
 }
 
 function checkTboxHighAlarm(value) {
   if (value > dev[tBoxOverheat]) {
-     dev[tBoxHighAlarm] = true; 
+     dev[tBoxHighAlarm] = true;
     }
     if (value < (dev[tBoxOverheat] - dev[tBoxOverheatDelta])) {
       dev[tBoxHighAlarm] = false;
-    } 
+    }
 }
 
 defineRule('virtualTboxAlarm', {
   whenChanged: tBox,
   then: function (newValue) {
     checkTboxLowAlarm(newValue)
-    checkTboxHighAlarm(newValue)    
+    checkTboxHighAlarm(newValue)
   }
 })
