@@ -1,147 +1,106 @@
-var DEVICE_ID = 'virtualACdetector'
-var DEVICE_TITLE = 'Virtual AC detector'
-var PATH_TO_CONFIG = '/etc/wb-rules/virtualACdetector/config.conf'
+var DEVICE_ID = 'virtualACdetector';
+var DEVICE_TITLE = 'Virtual AC detector';
+var PATH_TO_CONFIG = '/etc/wb-rules/virtualACdetector/config.conf';
 
-var config = readConfig(PATH_TO_CONFIG)
+var TOPIC_AC_ALARM = 'AC_alarm';
+var TOPIC_VOLTAGE = 'Voltage';
+var TOPIC_INPUT_1 = 'Input_1';
+var TOPIC_INPUT_2 = 'Input_2';
+var TOPIC_INPUT_3 = 'Input_3';
+var TOPIC_GENERATOR = 'Generator';
+var TOPIC_ATS_1 = 'ATS_1';
+var TOPIC_ATS_2 = 'ATS_2';
+var TOPIC_ATS_3 = 'ATS_3';
 
-var voltageMin = config['voltageMin']
-var voltageMax = config['voltageMax']
-var voltageDelta = config['voltageDelta']
+var device = dev[DEVICE_ID];
+var config = readConfig(PATH_TO_CONFIG);
+
+var voltageIsOk = true;
+var input1IsOk = true;
+var input2IsOk = true;
+var input3IsOk = true;
 
 var virtualDevice = defineVirtualDevice(DEVICE_ID, {
-    title: DEVICE_TITLE,
-    cells: {
-        AC_alarm: {
-            type: 'alarm',
-            value: false,
-            readonly: false,
-            order: 1,
-        },
-        Voltage: {
-            type: 'voltage',
-            value: 0,
-            readonly: true,
-            order: 2,
-        },
-        Generator: {
-            type: 'switch',
-            value: false,
-            readonly: true,
-            order: 3,
-        },
-        Input_1: {
-            type: 'switch',
-            value: false,
-            readonly: true,
-            order: 4,
-        },
-        Input_2: {
-            type: 'switch',
-            value: false,
-            readonly: true,
-            order: 5,
-        },
-        Input_3: {
-            type: 'switch',
-            value: false,
-            readonly: true,
-            order: 6,
-        },
-        ATS_1: {
-            type: 'switch',
-            value: false,
-            readonly: true,
-            order: 7,
-        },
-        ATS_2: {
-            type: 'switch',
-            value: false,
-            readonly: true,
-            order: 8,
-        },
-        ATS_3: {
-            type: 'switch',
-            value: false,
-            readonly: true,
-            order: 9,
-        },
-    },
-})
+  title: DEVICE_TITLE,
+  cells: {
+    AC_alarm: { type: 'alarm', value: false, readonly: false, order: 1 },
+    Voltage: { type: 'voltage', value: 0, readonly: true, order: 2 },
+    Input_1: { type: 'voltage', value: 0, readonly: true, order: 3 },
+    Input_2: { type: 'voltage', value: 0, readonly: true, order: 4 },
+    Input_3: { type: 'voltage', value: 0, readonly: true, order: 5 },
+    Generator: { type: 'switch', value: false, readonly: true, order: 6 },
+    ATS_1: { type: 'switch', value: false, readonly: true, order: 7 },
+    ATS_2: { type: 'switch', value: false, readonly: true, order: 8 },
+    ATS_3: { type: 'switch', value: false, readonly: true, order: 9 },
+  },
+});
 
 var controlMap = {
-    'Voltage': config['voltage'],
-    'Generator': config['generator'][0],
-    'Input_1': config['input1'][0],
-    'Input_2': config['input2'][0],
-    'Input_3': config['input3'][0],
-    'ATS_1': config['ATS1'][0],
-    'ATS_2': config['ATS2'][0],
-    'ATS_3': config['ATS3'][0],
-}
+  Generator: config.generator[0],
+  Voltage: config.voltage.topic,
+  Input_1: config.input1.topic,
+  Input_2: config.input2.topic,
+  Input_3: config.input3.topic,
+  ATS_1: config.ATS1[0],
+  ATS_2: config.ATS2[0],
+  ATS_3: config.ATS3[0],
+};
 
 var invertMap = {
-    'Generator': config['generator'][1],
-    'Input_1': config['input1'][1],
-    'Input_2': config['input2'][1],
-    'Input_3': config['input3'][1],
-    'ATS_1': config['ATS1'][1],
-    'ATS_2': config['ATS2'][1],
-    'ATS_3': config['ATS3'][1],
-}
+  Generator: config.generator[1],
+  ATS_1: config.ATS1[1],
+  ATS_2: config.ATS2[1],
+  ATS_3: config.ATS3[1],
+};
 
-var observedTopics = []
+var observedTopics = [];
+
 for (var virtualControl in controlMap) {
-    var realTopic = controlMap[virtualControl]
+  var realTopic = controlMap[virtualControl];
 
-    if (realTopic) {
-        dev[DEVICE_ID][virtualControl] = invertMap[virtualControl] ? !dev[realTopic] : dev[realTopic]
-        observedTopics.push(realTopic)
-    } else {
-        virtualDevice.removeControl(virtualControl)
-    }
+  if (realTopic) {
+    device[virtualControl] = invertMap[virtualControl] ? !dev[realTopic] : dev[realTopic];
+    observedTopics.push(realTopic);
+  } else {
+    virtualDevice.removeControl(virtualControl);
+  }
 }
 
-function getKeyByValue(object, value) {
-    for (var key in object) {
-        if (object.hasOwnProperty(key) && object[key] === value) {
-            return key
-        }
-    }
+function checkVoltage(voltage, params, nowIsOk) {
+  var thresholdMin = params.min + (nowIsOk ? 0 : params.delta);
+  var thresholdMax = params.max - (nowIsOk ? 0 : params.delta);
 
-    return null
-}
-
-function checkVoltage(voltage) {
-    var alarmIsActive = dev[DEVICE_ID]['AC_alarm']
-    var min = alarmIsActive ? voltageMin + voltageDelta : voltageMin
-    var max = alarmIsActive ? voltageMax - voltageDelta : voltageMax
-
-    return voltage >= min && voltage <= max
-}
-
-function checkPower() {
-    var voltageIsOk = checkVoltage(dev[DEVICE_ID]['Voltage'])
-    var generatorDisabled = !dev[DEVICE_ID]['Generator']
-
-    var input1IsOk = virtualDevice.isControlExists('Input_1') && dev[DEVICE_ID]['Input_1']
-    var input2IsOk = virtualDevice.isControlExists('Input_2') && dev[DEVICE_ID]['Input_2']
-    var input3IsOk = virtualDevice.isControlExists('Input_3') && dev[DEVICE_ID]['Input_3']
-    var anyInputIsOk = input1IsOk || input2IsOk || input3IsOk
-
-    return voltageIsOk && generatorDisabled && anyInputIsOk
+  return voltage >= thresholdMin && voltage <= thresholdMax;
 }
 
 function setAlarm() {
-    dev[DEVICE_ID]['AC_alarm'] = !checkPower()
+  voltageIsOk =
+    virtualDevice.isControlExists(TOPIC_VOLTAGE) &&
+    checkVoltage(device[TOPIC_VOLTAGE], config.voltage, voltageIsOk);
+
+  device[TOPIC_AC_ALARM] = !(voltageIsOk && !device.Generator);
+}
+
+function findKeyByValue(map, value) {
+  for (var key in map) {
+    if (map.hasOwnProperty(key) && map[key] === value) {
+      return key;
+    }
+  }
+  return null;
 }
 
 defineRule({
-    whenChanged: observedTopics,
-    then: function(newValue, devName, cellName) {
-        var virtualControl = getKeyByValue(controlMap, devName + '/' + cellName)
-        dev[DEVICE_ID][virtualControl] = invertMap[virtualControl] ? !newValue : newValue
-        setAlarm()
-    }
-})
+  whenChanged: observedTopics,
+  then: function (newValue, devName, cellName) {
+    var virtualControl = findKeyByValue(controlMap, devName + '/' + cellName);
 
-setAlarm()
+    if (virtualControl) {
+      device[virtualControl] = invertMap[virtualControl] ? !newValue : newValue;
+    }
+
+    setAlarm();
+  },
+});
+
+setAlarm();
