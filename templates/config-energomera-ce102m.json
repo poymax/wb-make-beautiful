@@ -9,8 +9,7 @@
     "frame_timeout_ms" : 20,
     "response_timeout_ms": 1500,
     "password": ["0x77", "0x77", "0x77"],
-    "channels" : 
-    [
+    "channels" : [
       {
         "name": "Urms",
         "reg_type": "default",
@@ -78,11 +77,11 @@
         "address": "ET0PE()"
       },
       {
-      "name": "A_energy, 1 month ago",
-      "reg_type": "default",
-      "type": "power_consumption",
-      "address": "ENM01(1)",
-      "enabled" : false
+        "name": "A_energy, 1 month ago",
+        "reg_type": "default",
+        "type": "power_consumption",
+        "address": "ENM01(1)",
+        "enabled" : false
       },
       {
         "name": "A_energy, 2 months ago",

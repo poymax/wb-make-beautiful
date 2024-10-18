@@ -107,7 +107,7 @@
         "name": "PF_L1",
         "reg_type": "group_single",
         "type": "value",
-        "address": "0x400701"
+        "add ress": "0x400701"
       },
       {
         "name": "PF_L2",
