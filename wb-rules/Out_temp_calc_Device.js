@@ -13,10 +13,22 @@ defineVirtualDevice('Out_temp_calc', {
             value: 0,
             order: 3,
         },
+        S_fan: {
+            type: 'value',
+            readonly: false,
+            value: 0,
+            order: 4,
+        },
+        Efficiency: {
+            type: 'value',
+            readonly: false,
+            value: 0.5,
+            order: 5,
+        },
         t_out: {
             type: 'value',
             value: 0,
-            order: 4,
+            order: 6,
         },
     },
 })
