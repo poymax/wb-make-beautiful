@@ -115,7 +115,7 @@ if (tBoxLowTopic) {
   var tBoxLowTempRule = defineRule("tempLow", {
     whenChanged: tBoxLowTopic,
     then: function () {
-        message = dev[tBoxLowTopic] ? "Жарко!!!" : 'Температура\\ в\\ норме!';
+        message = dev[tBoxLowTopic] ? "Холодно!!!" : 'Температура\\ в\\ норме!';
       checkAlarm()
       }
   });
