@@ -37,7 +37,7 @@ if (acAlarmTopic) {
   var acAlarmRule = defineRule("AC", {
    whenChanged: acAlarmTopic,
     then: function () {
-      if (dev[acAlarmTopic] == true) {
+      if (dev[acAlarmTopic] === true) {
         message = "Электричество\\ кончилось!\\ " + dev[cityVoltage_1].toFixed(0) + "\\ В";
       }
       checkAlarm()
@@ -49,7 +49,7 @@ if (city_1) {
   var city1Rule = defineRule("AC1", {
    whenChanged: city_1,
     then: function () {
-      if (dev[city_1] == true) {
+      if (dev[city_1] === true) {
         message = "Ввод\\ электропитания\\ №1\\ активирован!\\ " + dev[cityVoltage_1].toFixed(0) + "\\ В";
       }
       checkAlarm()
@@ -61,7 +61,7 @@ if (city_2) {
   var city2Rule = defineRule("AC2", {
    whenChanged: city_2,
     then: function () {
-      if (dev[city_2] == true) {
+      if (dev[city_2] === true) {
         message = "Ввод\\ электропитания\\ №2\\ активирован!\\ " + dev[cityVoltage_2].toFixed(0) + "\\ В";
       }
       checkAlarm()
@@ -73,7 +73,7 @@ if (city_3) {
   var city3Rule = defineRule("AC3", {
    whenChanged: city_3,
     then: function () {
-      if (dev[city_3] == true) {
+      if (dev[city_3] === true) {
         message = "Ввод\\ электропитания\\ №3\\ активирован!\\ " + dev[cityVoltage_3].toFixed(0) + "\\ В";
       }
       checkAlarm()
